@@ -54,6 +54,12 @@ public class GameStateTest {
         gamestate.setInAction(1);
         assertEquals(player, gamestate.getActualPlayer());
     }
+    
+    @Test
+    public void executeShouldReturnDoubleSmallBlindAsResult(){
+        gamestate.setSmallBlind(100);
+        assertEquals(200, gamestate.getBigBlind());
+    }
 
     @After
     public void resetGameState() {
