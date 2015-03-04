@@ -11,30 +11,54 @@ import java.util.List;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import com.wcs.poker.gamestate.Player;
+import org.junit.After;
+import org.junit.Before;
+
 /**
  *
  * @author Horváth Dániel
  */
 public class GameStateTest {
 
-	private GameState gamestate;
+    private GameState gamestate;
+    private Player player;
+    private List<Player> players;
 
-	public GameStateTest() {
-	}
+    public GameStateTest() {
+    }
 
-	@Test
-	public void executeShouldReturnTheDifferencOfCurrentBuyAndInAction() {
-		gamestate = new GameState();
-		List<Player> players = new ArrayList<Player>();
-		Player player = new Player();
-		player.setBet(100);
-		players.add(player);
-		
-		gamestate.setPlayers(players);
-		gamestate.setCurrentBuyIn(240);
-		gamestate.setInAction(0);
-		
-		assertEquals(140, gamestate.getCallValue());
-	}
+    @Before
+    public void initGameState() {
+        gamestate = new GameState();
+        players = new ArrayList<>();
+        player = new Player();
+    }
 
+    @Test
+    public void executeShouldReturnTheDifferencOfCurrentBuyInAndTheBetOfPlayerInAction() {
+        player.setBet(100);
+        players.add(player);
+        gamestate.setPlayers(players);
+        gamestate.setCurrentBuyIn(240);
+        gamestate.setCurrentBuyIn(240);
+        gamestate.setInAction(0);
+        assertEquals(140, gamestate.getCallValue());
+    }
+
+    @Test
+    public void exeuteShouldReturnTheActualPlayer() {
+        players.add(new Player());
+        players.add(player);
+        players.add(new Player());
+        gamestate.setPlayers(players);
+        gamestate.setInAction(1);
+        assertEquals(player, gamestate.getActualPlayer());
+    }
+
+    @After
+    public void resetGameState() {
+        gamestate = null;
+        players = null;
+        player = null;
+    }
 }

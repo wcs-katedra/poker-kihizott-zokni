@@ -180,5 +180,9 @@ public class GameState {
 	public int getCallValue() {
 		return currentBuyIn - players.get(inAction).getBet();
 	}
+        
+        public Player getActualPlayer(){
+            return players.get(inAction);
+        }
 
 }
