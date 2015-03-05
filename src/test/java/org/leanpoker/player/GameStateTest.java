@@ -20,7 +20,7 @@ import org.junit.Before;
  */
 public class GameStateTest {
 
-    private GameState gamestate;
+    private GameState gameState;
     private Player player;
     private List<Player> players;
 
@@ -29,7 +29,7 @@ public class GameStateTest {
 
     @Before
     public void initGameState() {
-        gamestate = new GameState();
+        gameState = new GameState();
         players = new ArrayList<>();
         player = new Player();
     }
@@ -38,11 +38,11 @@ public class GameStateTest {
     public void executeShouldReturnTheDifferencOfCurrentBuyInAndTheBetOfPlayerInAction() {
         player.setBet(100);
         players.add(player);
-        gamestate.setPlayers(players);
-        gamestate.setCurrentBuyIn(240);
-        gamestate.setCurrentBuyIn(240);
-        gamestate.setInAction(0);
-        assertEquals(140, gamestate.getCallValue());
+        gameState.setPlayers(players);
+        gameState.setCurrentBuyIn(240);
+        gameState.setCurrentBuyIn(240);
+        gameState.setInAction(0);
+        assertEquals(140, gameState.getCallValue());
     }
 
     @Test
@@ -50,20 +50,30 @@ public class GameStateTest {
         players.add(new Player());
         players.add(player);
         players.add(new Player());
-        gamestate.setPlayers(players);
-        gamestate.setInAction(1);
-        assertEquals(player, gamestate.getActualPlayer());
+        gameState.setPlayers(players);
+        gameState.setInAction(1);
+        assertEquals(player, gameState.getActualPlayer());
     }
-    
+
     @Test
-    public void executeShouldReturnDoubleSmallBlindAsResult(){
-        gamestate.setSmallBlind(100);
-        assertEquals(200, gamestate.getBigBlind());
+    public void executeShouldReturnDoubleSmallBlindAsResult() {
+        gameState.setSmallBlind(100);
+        assertEquals(200, gameState.getBigBlind());
+    }
+
+    @Test
+    public void executeShouldReturnStackSizeInBigBlinds() {
+        gameState.setSmallBlind(50);
+        player.setStack(1230);
+        players.add(player);
+        gameState.setPlayers(players);
+        gameState.setInAction(0);
+        assertEquals(12, gameState.getStackSizeInBBs());
     }
 
     @After
     public void resetGameState() {
-        gamestate = null;
+        gameState = null;
         players = null;
         player = null;
     }

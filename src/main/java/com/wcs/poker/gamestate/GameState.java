@@ -188,4 +188,8 @@ public class GameState {
     public int getBigBlind() {
         return 2 * smallBlind;
     }
+
+    public int getStackSizeInBBs() {
+        return players.get(inAction).getStack() / getBigBlind();
+    }
 }
