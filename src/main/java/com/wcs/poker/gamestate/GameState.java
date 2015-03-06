@@ -14,7 +14,11 @@ public class GameState {
     private final String bigBlindPosition = "BB";
     private final String middlePosition = "MP";
     private final String cutoffPosition = "CO";
+    private final String cleanPot = "CLN";
+    private final String limpedPot = "LMPD";
+    private final String raisedPot = "RSD";
 
+    private String potStatus;
     private String position;
 
     @SerializedName("small_blind")
@@ -199,6 +203,16 @@ public class GameState {
 
     public int getStackSizeInBBs() {
         return players.get(inAction).getStack() / getBigBlind();
+    }
+
+    public String getPotStatus() {
+        if (currentBuyIn > getBigBlind()) {
+            return raisedPot;
+        }
+        if (pot == 3 * smallBlind) {
+            return cleanPot;
+        }
+        return limpedPot;
     }
 
     public int getNumberOfPosition() {

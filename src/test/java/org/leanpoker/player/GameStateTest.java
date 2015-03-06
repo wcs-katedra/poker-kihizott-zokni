@@ -96,6 +96,14 @@ public class GameStateTest {
         assertEquals("MP", gameState.getPosition());
     }
 
+    @Test
+    public void executeShouldReturnProperPotStatus() {
+        assertEquals("RSD", gameState.getPotStatus());
+        gameState.setCurrentBuyIn(200);
+        gameState.setPot(500);
+        assertEquals("LMPD", gameState.getPotStatus());
+    }
+
     @After
     public void resetGameState() {
         gameState = null;
