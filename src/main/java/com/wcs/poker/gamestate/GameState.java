@@ -9,6 +9,14 @@ import com.google.gson.annotations.SerializedName;
 @Generated("org.jsonschema2pojo")
 public class GameState {
 
+    private final String dealerPosition = "BU";
+    private final String smallBlindPosition = "SB";
+    private final String bigBlindPosition = "BB";
+    private final String middlePosition = "MP";
+    private final String cutoffPosition = "CO";
+
+    private String position;
+
     @SerializedName("small_blind")
     @Expose
     private Integer smallBlind;
@@ -192,4 +200,77 @@ public class GameState {
     public int getStackSizeInBBs() {
         return players.get(inAction).getStack() / getBigBlind();
     }
+
+    public int getNumberOfPosition() {
+        return Math.abs(dealer - inAction);
+    }
+
+    public void evaluatePosition() {
+        switch (players.size()) {
+            case 4: {
+                switch (getNumberOfPosition()) {
+                    case 0: {
+                        position = dealerPosition;
+                        break;
+                    }
+                    case 1: {
+                        position = smallBlindPosition;
+                        break;
+                    }
+                    case 2: {
+                        position = bigBlindPosition;
+                        break;
+                    }
+                    case 3: {
+                        position = cutoffPosition;
+                        break;
+                    }
+                }
+                break;
+            }
+            case 2: {
+                switch (getNumberOfPosition()) {
+                    case 0: {
+                        position = bigBlindPosition;
+                        break;
+                    }
+                    case 1: {
+                        position = smallBlindPosition;
+                        break;
+                    }
+                }
+                break;
+            }
+            default: {
+                switch (getNumberOfPosition()) {
+                    case 0: {
+                        position = dealerPosition;
+                        break;
+                    }
+                    case 1: {
+                        position = smallBlindPosition;
+                        break;
+                    }
+                    case 2: {
+                        position = bigBlindPosition;
+                        break;
+                    }
+                    case 3: {
+                        position = middlePosition;
+                        break;
+                    }
+                    case 4: {
+                        position = cutoffPosition;
+                        break;
+                    }
+                }
+                break;
+            }
+        }
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
 }

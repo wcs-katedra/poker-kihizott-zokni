@@ -21,7 +21,11 @@ import org.junit.Before;
 public class GameStateTest {
 
     private GameState gameState;
-    private Player player;
+    private Player first;
+    private Player second;
+    private Player third;
+    private Player fourth;
+    private Player fifth;
     private List<Player> players;
 
     public GameStateTest() {
@@ -29,52 +33,77 @@ public class GameStateTest {
 
     @Before
     public void initGameState() {
-        gameState = new GameState();
         players = new ArrayList<>();
-        player = new Player();
+
+        first = new Player();
+        players.add(first);
+
+        second = new Player();
+        players.add(second);
+
+        third = new Player();
+        players.add(third);
+
+        fourth = new Player();
+        players.add(fourth);
+
+        fifth = new Player();
+        players.add(fifth);
+
+        gameState = new GameState();
+        gameState.setPlayers(players);
+        gameState.setCurrentBuyIn(240);
+        gameState.setSmallBlind(100);
     }
 
     @Test
     public void executeShouldReturnTheDifferencOfCurrentBuyInAndTheBetOfPlayerInAction() {
-        player.setBet(100);
-        players.add(player);
-        gameState.setPlayers(players);
-        gameState.setCurrentBuyIn(240);
-        gameState.setCurrentBuyIn(240);
-        gameState.setInAction(0);
+        gameState.setInAction(1);
+        second.setBet(100);
         assertEquals(140, gameState.getCallValue());
     }
 
     @Test
     public void exeuteShouldReturnTheActualPlayer() {
-        players.add(new Player());
-        players.add(player);
-        players.add(new Player());
-        gameState.setPlayers(players);
-        gameState.setInAction(1);
-        assertEquals(player, gameState.getActualPlayer());
+        gameState.setInAction(2);
+        assertEquals(third, gameState.getActualPlayer());
     }
 
     @Test
     public void executeShouldReturnDoubleSmallBlindAsResult() {
-        gameState.setSmallBlind(100);
         assertEquals(200, gameState.getBigBlind());
     }
 
     @Test
     public void executeShouldReturnStackSizeInBigBlinds() {
-        gameState.setSmallBlind(50);
-        player.setStack(1230);
-        players.add(player);
-        gameState.setPlayers(players);
         gameState.setInAction(0);
-        assertEquals(12, gameState.getStackSizeInBBs());
+        first.setStack(1230);
+        assertEquals(6, gameState.getStackSizeInBBs());
+    }
+
+    @Test
+    public void executeShouldReturnPositionRelativetoDealer() {
+        gameState.setInAction(2);
+        gameState.setDealer(1);
+        assertEquals(1, gameState.getNumberOfPosition());
+    }
+
+    @Test
+    public void executeShouldReturnThePositionAsString() {
+        gameState.setInAction(4);
+        gameState.setDealer(1);
+        gameState.evaluatePosition();
+        assertEquals("MP", gameState.getPosition());
     }
 
     @After
     public void resetGameState() {
         gameState = null;
         players = null;
-        player = null;
+        first = null;
+        second = null;
+        third = null;
+        fourth = null;
+        fifth = null;
     }
 }
