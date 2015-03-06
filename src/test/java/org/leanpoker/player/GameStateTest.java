@@ -5,6 +5,7 @@
  */
 package org.leanpoker.player;
 
+import com.wcs.poker.gamestate.Card;
 import com.wcs.poker.gamestate.GameState;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +28,9 @@ public class GameStateTest {
     private Player fourth;
     private Player fifth;
     private List<Player> players;
-
+	private List<Card> cards;
+	private Card card1;
+	
     public GameStateTest() {
     }
 
@@ -50,6 +53,12 @@ public class GameStateTest {
         fifth = new Player();
         players.add(fifth);
 
+		cards = new ArrayList<>();
+		card1 = new Card();
+		card1.setRank("4");
+		card1.setSuit("hearts");
+		cards.add(card1);
+		
         gameState = new GameState();
         gameState.setPlayers(players);
         gameState.setCurrentBuyIn(240);
@@ -103,6 +112,13 @@ public class GameStateTest {
         gameState.setPot(500);
         assertEquals("LMPD", gameState.getPotStatus());
     }
+	
+	@Test
+	public void executeShouldReturnPlayersInActionHoleCards() {
+		gameState.setInAction(2);
+		gameState.getActualPlayer().setHoleCards(cards);
+		assertEquals(cards, gameState.getPlayerInActionHoleCards());
+	}
 
     @After
     public void resetGameState() {
@@ -113,5 +129,7 @@ public class GameStateTest {
         third = null;
         fourth = null;
         fifth = null;
+		card1 =  null;
+		cards = null;
     }
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import java.util.Collections;
 
 @Generated("org.jsonschema2pojo")
 public class GameState {
@@ -287,4 +288,7 @@ public class GameState {
         return position;
     }
 
+	public List<Card> getPlayerInActionHoleCards() {
+		return getActualPlayer().getHoleCards();
+	}
 }
