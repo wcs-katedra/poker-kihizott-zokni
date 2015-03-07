@@ -17,8 +17,10 @@ public class GameState {
     private final String cleanPot = "CLN";
     private final String limpedPot = "LMPD";
     private final String raisedPot = "RSD";
+    private final String earlyRacePhase = "EARLY";
+    private final String middleRacePhase = "MIDDLE";
+    private final String finalRacePhase = "FINAL";
 
-    private String potStatus;
     private String position;
 
     @SerializedName("small_blind")
@@ -219,7 +221,7 @@ public class GameState {
         return Math.abs(dealer - inAction);
     }
 
-    public void evaluatePosition() {
+    private void evaluatePosition() {
         switch (players.size()) {
             case 4: {
                 switch (getNumberOfPosition()) {
@@ -283,7 +285,18 @@ public class GameState {
         }
     }
 
+    public String evaluateRacePhase() {
+        if (getStackSizeInBBs() > 24) {
+            return earlyRacePhase;
+        }
+        if (getStackSizeInBBs() > 13 && getStackSizeInBBs() <= 24) {
+            return middleRacePhase;
+        }
+        return finalRacePhase;
+    }
+
     public String getPosition() {
+        evaluatePosition();
         return position;
     }
 

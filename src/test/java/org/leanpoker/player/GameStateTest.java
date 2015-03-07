@@ -92,7 +92,6 @@ public class GameStateTest {
     public void executeShouldReturnThePositionAsString() {
         gameState.setInAction(4);
         gameState.setDealer(1);
-        gameState.evaluatePosition();
         assertEquals("MP", gameState.getPosition());
     }
 
@@ -104,6 +103,13 @@ public class GameStateTest {
         assertEquals("LMPD", gameState.getPotStatus());
     }
 
+    @Test
+    public void executeShouldReturnProperRacePhase(){
+        gameState.setInAction(0);
+        first.setStack(5200);
+        assertEquals(gameState.evaluateRacePhase(), "EARLY");
+    }
+    
     @After
     public void resetGameState() {
         gameState = null;
