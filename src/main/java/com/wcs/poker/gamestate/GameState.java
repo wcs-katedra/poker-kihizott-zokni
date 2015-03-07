@@ -301,7 +301,7 @@ public class GameState {
         return position;
     }
 
-	public List<Card> getPlayerInActionHoleCards() {
-		return getActualPlayer().getHoleCards();
-	}
+    public List<Card> getPlayerInActionHoleCards() {
+        return getActualPlayer().getHoleCards();
+    }
 }
