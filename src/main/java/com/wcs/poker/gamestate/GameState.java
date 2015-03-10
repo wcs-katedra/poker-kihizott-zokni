@@ -312,4 +312,8 @@ public class GameState {
     public List<Card> getPlayerInActionHoleCards() {
         return getActualPlayer().getHoleCards();
     }
+
+    public int getMinimumBet() {
+        return currentBuyIn - players.get(inAction).getBet() + minimumRaise;
+    }
 }

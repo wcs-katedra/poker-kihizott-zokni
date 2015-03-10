@@ -39,6 +39,7 @@ public class GameStateTest {
         players = new ArrayList<>();
 
         first = new Player();
+        first.setBet(10);
         players.add(first);
 
         second = new Player();
@@ -64,6 +65,7 @@ public class GameStateTest {
         gameState.setCurrentBuyIn(240);
         gameState.setSmallBlind(100);
         gameState.setInAction(0);
+        gameState.setMinimumRaise(10);
     }
 
     @Test
@@ -141,6 +143,11 @@ public class GameStateTest {
         players.get(0).setBet(50);
         gameState.setMinimumRaise(250);
         assertEquals(690, gameState.raise(2));
+    }
+
+    @Test
+    public void shouldReturnTheExpectedMinimumBet() {
+        assertEquals(240, gameState.getMinimumBet());
     }
 
     @After
