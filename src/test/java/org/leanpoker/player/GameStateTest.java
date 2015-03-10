@@ -63,13 +63,14 @@ public class GameStateTest {
         gameState.setPlayers(players);
         gameState.setCurrentBuyIn(240);
         gameState.setSmallBlind(100);
+        gameState.setInAction(0);
     }
 
     @Test
     public void executeShouldReturnTheDifferencOfCurrentBuyInAndTheBetOfPlayerInAction() {
         gameState.setInAction(1);
         second.setBet(100);
-        assertEquals(140, gameState.getCallValue());
+        assertEquals(140, gameState.Call());
     }
 
     @Test
@@ -124,6 +125,22 @@ public class GameStateTest {
         gameState.setInAction(0);
         first.setStack(5200);
         assertEquals(gameState.evaluateRacePhase(), "EARLY");
+    }
+
+    @Test
+    public void executeShouldReturnFullStackAtRaise() {
+        players.get(0).setStack(1300);
+        gameState.setInAction(0);
+        assertEquals(1300, gameState.allIn());
+    }
+
+
+    @Test
+    public void executeShouldReturnTheDifferencOfCurrentBuyInAndTheBetOfPlayerInActionWithRaiseValue() {
+        players.get(0).setStack(1300);
+        players.get(0).setBet(50);
+        gameState.setMinimumRaise(250);
+        assertEquals(690, gameState.raise(2));
     }
 
     @After

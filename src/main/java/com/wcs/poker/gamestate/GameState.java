@@ -192,7 +192,7 @@ public class GameState {
         this.communityCards = communityCards;
     }
 
-    public int getCallValue() {
+    public int Call() {
         return currentBuyIn - players.get(inAction).getBet();
     }
 
@@ -299,6 +299,14 @@ public class GameState {
     public String getPosition() {
         evaluatePosition();
         return position;
+    }
+
+    public int allIn() {
+        return players.get(inAction).getStack();
+    }
+
+    public int raise(int multiplier) {
+        return currentBuyIn - players.get(inAction).getBet() + (multiplier * minimumRaise);
     }
 
     public List<Card> getPlayerInActionHoleCards() {
