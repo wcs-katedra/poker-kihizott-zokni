@@ -86,7 +86,6 @@ public class GameStateTest {
 
     @Test
     public void executeShouldReturnStackSizeInBigBlinds() {
-        gameState.setInAction(0);
         first.setStack(1230);
         assertEquals(6, gameState.getStackSizeInBBs());
     }
@@ -122,7 +121,6 @@ public class GameStateTest {
 
     @Test
     public void executeShouldReturnProperRacePhase() {
-        gameState.setInAction(0);
         first.setStack(5200);
         assertEquals(gameState.evaluateRacePhase(), "EARLY");
     }

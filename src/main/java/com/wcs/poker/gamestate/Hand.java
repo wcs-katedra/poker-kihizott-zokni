@@ -34,4 +34,6 @@ public class Hand {
     public void setCard2(Card Card2) {
         this.Card2 = Card2;
     }
+    
+    
 }

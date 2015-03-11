@@ -1,13 +1,12 @@
 package org.leanpoker.player;
 
-import com.wcs.poker.gamestate.Card;
 import com.wcs.poker.gamestate.GameState;
 import com.wcs.poker.gamestate.Hand;
 import java.util.List;
 
 public class Player {
 
-    static final String VERSION = "Default Java folding player";
+    static final String VERSION = "Blind Stealer player";
 
     //több mint 24 nagyvakunk van, belső pozícióban vagyunk és még senki sem emelt, ezekkel fogunk emelni
     private static List<Hand> earlyRaiseFromMiddleCards;
@@ -30,26 +29,29 @@ public class Player {
     //13> nagyvakunk van és emeltek elöttünk - a következő lapokkal all-in
     private static List<Hand> finalPushAtRaisedPotCards;
 
-    private static final String CLUBS = "clubs";
-    private static final String SPADES = "spades";
-    private static final String DIAMONDS = "diamonds";
-    private static final String HEARTS = "hearts";
-
-    private static final String ACE = "A";
-    private static final String KING = "K";
-    private static final String QUEEN = "Q";
-    private static final String JACK = "J";
-    private static final String TEN = "10";
-    private static final String NINE = "9";
-    private static final String EIGHT = "8";
-    private static final String SEVEN = "7";
-    private static final String SIX = "6";
-    private static final String FIVE = "5";
-    private static final String FOUR = "4";
-    private static final String THREE = "3";
-    private static final String TWO = "2";
-
     public static int betRequest(GameState gameState) {
+        return blindStealerStrategy(gameState);
+    }
+
+    public static void showdown(GameState gameState) {
+    }
+
+    public static int blindStealerStrategy(GameState gameState) {
+        switch (gameState.getPotStatus()) {
+            case "CLN": {
+                switch (gameState.getPosition()) {
+                    case "BU":
+                    case "SB": {
+                        return gameState.raise(1);
+                    }
+                }
+                break;
+            }
+        }
+        return 0;
+    }
+
+    public static int defaultPreFlopStrategy(GameState gameState) {
         switch (gameState.evaluateRacePhase()) {
             case "EARLY": {
                 switch (gameState.getPosition()) {
@@ -146,9 +148,6 @@ public class Player {
             }
         }
         return 0;
-    }
-
-    public static void showdown(GameState gameState) {
     }
 
     public void loadHandLists() {
