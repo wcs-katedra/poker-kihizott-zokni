@@ -25,6 +25,7 @@ public class Player {
     @SerializedName("hole_cards")
     @Expose
     private List<Card> holeCards = new ArrayList<Card>();
+
     /**
      * 
      * @return
