@@ -35,5 +35,14 @@ public class Hand {
         this.Card2 = Card2;
     }
     
+    public boolean rankEquals(Hand hand){
+        if(Card1.getRank().equals(hand.getCard1().getRank()) && Card2.getRank().equals(hand.getCard2().getRank())){
+            return true;
+        }
+        if(Card1.getRank().equals(hand.getCard2().getRank()) && Card2.getRank().equals(hand.getCard1().getRank())){
+            return true;
+        }
+        return false;
+    }
     
 }

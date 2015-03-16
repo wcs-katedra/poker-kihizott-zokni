@@ -30,125 +30,110 @@ public class Player {
     private static List<Hand> finalPushAtRaisedPotCards;
 
     public static int betRequest(GameState gameState) {
-        return blindStealerStrategy(gameState);
+        return 0;
     }
 
     public static void showdown(GameState gameState) {
     }
 
-    public static int blindStealerStrategy(GameState gameState) {
-        switch (gameState.getPotStatus()) {
-            case "CLN": {
-                switch (gameState.getPosition()) {
-                    case "BU":
-                    case "SB": {
-                        return gameState.raise(1);
-                    }
-                }
-                break;
-            }
-        }
-        return 0;
-    }
-
-    public static int defaultPreFlopStrategy(GameState gameState) {
-        switch (gameState.evaluateRacePhase()) {
-            case "EARLY": {
-                switch (gameState.getPosition()) {
-                    case "MP": {
-                        for (Hand hand : earlyRaiseFromMiddleCards) {
-                            if (hand.equals(gameState.getPlayerInActionHoleCards())) {
-                                return gameState.raise(2);
-                            }
-                        }
-                        for (Hand hand : earlyLimpFromMiddleCards) {
-                            if (hand.equals(gameState.getPlayerInActionHoleCards())) {
-                                return gameState.Call();
-                            }
-                        }
-                        break;
-                    }
-                    default: {
-                        switch (gameState.getPotStatus()) {
-                            case "RSD": {
-                                for (Hand hand : earlyCallFromBackOrBlindsCards) {
-                                    if (hand.equals(gameState.getPlayerInActionHoleCards())) {
-                                        return gameState.Call();
-                                    }
-                                }
-                                for (Hand hand : earlyreraiseFromBackOrBlindsCards) {
-                                    if (hand.equals(gameState.getPlayerInActionHoleCards())) {
-                                        return gameState.allIn();
-                                    }
-                                }
-                                break;
-                            }
-                            default: {
-                                for (Hand hand : earlyRaiseFromBackOrBlindsCards) {
-                                    if (hand.equals(gameState.getPlayerInActionHoleCards())) {
-                                        return gameState.raise(2);
-                                    }
-                                }
-                                for (Hand hand : earlyLimpFromBackOrBlindsCards) {
-                                    if (hand.equals(gameState.getPlayerInActionHoleCards())) {
-                                        return gameState.Call();
-                                    }
-                                }
-                                break;
-                            }
-                        }
-                        break;
-                    }
-                }
-                break;
-            }
-
-            case "MIDDLE": {
-                switch (gameState.getPotStatus()) {
-                    case "RSD": {
-                        for (Hand hand : midReRaiseCards) {
-                            if (hand.equals(gameState.getPlayerInActionHoleCards())) {
-                                return gameState.allIn();
-                            }
-                        }
-                        break;
-                    }
-                    default: {
-                        for (Hand hand : midRaiseCards) {
-                            if (hand.equals(gameState.getPlayerInActionHoleCards())) {
-                                return gameState.raise(2);
-                            }
-                        }
-                        break;
-                    }
-                }
-                break;
-            }
-
-            case "FINAL": {
-                switch (gameState.getPotStatus()) {
-                    case "RSD": {
-                        for (Hand hand : finalPushAtRaisedPotCards) {
-                            if (hand.equals(gameState.getPlayerInActionHoleCards())) {
-                                return gameState.allIn();
-                            }
-                        }
-                        break;
-                    }
-                    default: {
-                        for (Hand hand : finalPushAtLimpedPotCards) {
-                            if (hand.equals(gameState.getPlayerInActionHoleCards())) {
-                                return gameState.allIn();
-                            }
-                        }
-                        break;
-                    }
-                }
-                break;
-            }
-        }
-        return 0;
-    }
+//    public static int defaultPreFlopStrategy(GameState gameState) {
+//        switch (gameState.evaluateRacePhase()) {
+//            case "EARLY": {
+//                switch (gameState.getPosition()) {
+//                    case "MP": {
+//                        for (Hand hand : earlyRaiseFromMiddleCards) {
+//                            if (hand.equals(gameState.getPlayerInActionHoleCards())) {
+//                                return gameState.raise(2);
+//                            }
+//                        }
+//                        for (Hand hand : earlyLimpFromMiddleCards) {
+//                            if (hand.equals(gameState.getPlayerInActionHoleCards())) {
+//                                return gameState.Call();
+//                            }
+//                        }
+//                        break;
+//                    }
+//                    default: {
+//                        switch (gameState.getPotStatus()) {
+//                            case "RSD": {
+//                                for (Hand hand : earlyCallFromBackOrBlindsCards) {
+//                                    if (hand.equals(gameState.getPlayerInActionHoleCards())) {
+//                                        return gameState.Call();
+//                                    }
+//                                }
+//                                for (Hand hand : earlyreraiseFromBackOrBlindsCards) {
+//                                    if (hand.equals(gameState.getPlayerInActionHoleCards())) {
+//                                        return gameState.allIn();
+//                                    }
+//                                }
+//                                break;
+//                            }
+//                            default: {
+//                                for (Hand hand : earlyRaiseFromBackOrBlindsCards) {
+//                                    if (hand.equals(gameState.getPlayerInActionHoleCards())) {
+//                                        return gameState.raise(2);
+//                                    }
+//                                }
+//                                for (Hand hand : earlyLimpFromBackOrBlindsCards) {
+//                                    if (hand.equals(gameState.getPlayerInActionHoleCards())) {
+//                                        return gameState.Call();
+//                                    }
+//                                }
+//                                break;
+//                            }
+//                        }
+//                        break;
+//                    }
+//                }
+//                break;
+//            }
+//
+//            case "MIDDLE": {
+//                switch (gameState.getPotStatus()) {
+//                    case "RSD": {
+//                        for (Hand hand : midReRaiseCards) {
+//                            if (hand.equals(gameState.getPlayerInActionHoleCards())) {
+//                                return gameState.allIn();
+//                            }
+//                        }
+//                        break;
+//                    }
+//                    default: {
+//                        for (Hand hand : midRaiseCards) {
+//                            if (hand.equals(gameState.getPlayerInActionHoleCards())) {
+//                                return gameState.raise(2);
+//                            }
+//                        }
+//                        break;
+//                    }
+//                }
+//                break;
+//            }
+//
+//            case "FINAL": {
+//                switch (gameState.getPotStatus()) {
+//                    case "RSD": {
+//                        for (Hand hand : finalPushAtRaisedPotCards) {
+//                            if (hand.equals(gameState.getPlayerInActionHoleCards())) {
+//                                return gameState.allIn();
+//                            }
+//                        }
+//                        break;
+//                    }
+//                    default: {
+//                        for (Hand hand : finalPushAtLimpedPotCards) {
+//                            if (hand.equals(gameState.getPlayerInActionHoleCards())) {
+//                                return gameState.allIn();
+//                            }
+//                        }
+//                        break;
+//                    }
+//                }
+//                break;
+//            }
+//        }
+//        return 0;
+//    }
 
     public void loadHandLists() {
 

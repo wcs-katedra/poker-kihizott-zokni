@@ -91,20 +91,6 @@ public class GameStateTest {
     }
 
     @Test
-    public void executeShouldReturnPositionRelativetoDealer() {
-        gameState.setInAction(2);
-        gameState.setDealer(1);
-        assertEquals(1, gameState.getNumberOfPosition());
-    }
-
-    @Test
-    public void executeShouldReturnThePositionAsString() {
-        gameState.setInAction(4);
-        gameState.setDealer(1);
-        assertEquals("MP", gameState.getPosition());
-    }
-
-    @Test
     public void executeShouldReturnProperPotStatus() {
         assertEquals("RSD", gameState.getPotStatus());
         gameState.setCurrentBuyIn(200);
@@ -117,12 +103,6 @@ public class GameStateTest {
         gameState.setInAction(2);
         gameState.getActualPlayer().setHoleCards(cards);
         assertEquals(cards, gameState.getPlayerInActionHoleCards());
-    }
-
-    @Test
-    public void executeShouldReturnProperRacePhase() {
-        first.setStack(5200);
-        assertEquals(gameState.evaluateRacePhase(), "EARLY");
     }
 
     @Test

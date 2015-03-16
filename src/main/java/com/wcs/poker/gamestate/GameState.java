@@ -5,24 +5,13 @@ import java.util.List;
 import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import java.util.Collections;
 
 @Generated("org.jsonschema2pojo")
 public class GameState {
 
-    private final String dealerPosition = "BU";
-    private final String smallBlindPosition = "SB";
-    private final String bigBlindPosition = "BB";
-    private final String middlePosition = "MP";
-    private final String cutoffPosition = "CO";
     private final String cleanPot = "CLN";
     private final String limpedPot = "LMPD";
     private final String raisedPot = "RSD";
-    private final String earlyRacePhase = "EARLY";
-    private final String middleRacePhase = "MIDDLE";
-    private final String finalRacePhase = "FINAL";
-
-    private String position;
 
     @SerializedName("small_blind")
     @Expose
@@ -216,89 +205,6 @@ public class GameState {
             return cleanPot;
         }
         return limpedPot;
-    }
-
-    public int getNumberOfPosition() {
-        return Math.abs(dealer - inAction);
-    }
-
-    private void evaluatePosition() {
-        switch (players.size()) {
-            case 4: {
-                switch (getNumberOfPosition()) {
-                    case 0: {
-                        position = dealerPosition;
-                        break;
-                    }
-                    case 1: {
-                        position = smallBlindPosition;
-                        break;
-                    }
-                    case 2: {
-                        position = bigBlindPosition;
-                        break;
-                    }
-                    case 3: {
-                        position = cutoffPosition;
-                        break;
-                    }
-                }
-                break;
-            }
-            case 2: {
-                switch (getNumberOfPosition()) {
-                    case 0: {
-                        position = bigBlindPosition;
-                        break;
-                    }
-                    case 1: {
-                        position = smallBlindPosition;
-                        break;
-                    }
-                }
-                break;
-            }
-            default: {
-                switch (getNumberOfPosition()) {
-                    case 0: {
-                        position = dealerPosition;
-                        break;
-                    }
-                    case 1: {
-                        position = smallBlindPosition;
-                        break;
-                    }
-                    case 2: {
-                        position = bigBlindPosition;
-                        break;
-                    }
-                    case 3: {
-                        position = middlePosition;
-                        break;
-                    }
-                    case 4: {
-                        position = cutoffPosition;
-                        break;
-                    }
-                }
-                break;
-            }
-        }
-    }
-
-    public String evaluateRacePhase() {
-        if (getStackSizeInBBs() > 24) {
-            return earlyRacePhase;
-        }
-        if (getStackSizeInBBs() > 13 && getStackSizeInBBs() <= 24) {
-            return middleRacePhase;
-        }
-        return finalRacePhase;
-    }
-
-    public String getPosition() {
-        evaluatePosition();
-        return position;
     }
 
     public int allIn() {
