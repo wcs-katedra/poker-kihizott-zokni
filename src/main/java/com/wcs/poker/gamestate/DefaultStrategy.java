@@ -38,18 +38,17 @@ public class DefaultStrategy {
             }
             case OrbPhase.turn: {
                 turnStrategy();
+                break;
             }
             case OrbPhase.river: {
                 riverStrategy();
+                break;
             }
         }
     }
 
     public void preFlopStrategy() {
-        if (Math.random() * 100 > 50) {
-            bet = gameState.raise(2);
-        }
-//             bet = new PreFlopStrategy(gameState).getBet();
+        bet = new PreFlopStrategy(gameState).getBet();
     }
 
     public void flopStrategy() {
