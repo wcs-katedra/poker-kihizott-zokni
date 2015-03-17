@@ -12,8 +12,8 @@ package com.wcs.poker.gamestate;
 public class PotStatus {
 
     public static final String cleanPot = "CLN";
-    public static String limpedPot = "LMPD";
-    public static String raisedPot = "RSD";
+    public static final String limpedPot = "LMPD";
+    public static final String raisedPot = "RSD";
 
     private GameState gameState;
     private int buyIn;
