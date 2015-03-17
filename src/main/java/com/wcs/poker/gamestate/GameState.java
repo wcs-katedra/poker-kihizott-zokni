@@ -9,10 +9,6 @@ import com.google.gson.annotations.SerializedName;
 @Generated("org.jsonschema2pojo")
 public class GameState {
 
-    private final String cleanPot = "CLN";
-    private final String limpedPot = "LMPD";
-    private final String raisedPot = "RSD";
-
     @SerializedName("small_blind")
     @Expose
     private Integer smallBlind;
@@ -180,6 +176,8 @@ public class GameState {
     public void setCommunityCards(List<Card> communityCards) {
         this.communityCards = communityCards;
     }
+    
+    
 
     public int Call() {
         return currentBuyIn - players.get(inAction).getBet();
@@ -195,16 +193,6 @@ public class GameState {
 
     public int getStackSizeInBBs() {
         return players.get(inAction).getStack() / getBigBlind();
-    }
-
-    public String getPotStatus() {
-        if (currentBuyIn > getBigBlind()) {
-            return raisedPot;
-        }
-        if (pot == 3 * smallBlind) {
-            return cleanPot;
-        }
-        return limpedPot;
     }
 
     public int allIn() {

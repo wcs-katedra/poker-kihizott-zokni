@@ -91,14 +91,6 @@ public class GameStateTest {
     }
 
     @Test
-    public void executeShouldReturnProperPotStatus() {
-        assertEquals("RSD", gameState.getPotStatus());
-        gameState.setCurrentBuyIn(200);
-        gameState.setPot(500);
-        assertEquals("LMPD", gameState.getPotStatus());
-    }
-
-    @Test
     public void executeShouldReturnPlayersInActionHoleCards() {
         gameState.setInAction(2);
         gameState.getActualPlayer().setHoleCards(cards);
