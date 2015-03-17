@@ -35,13 +35,13 @@ public class PlayerTest {
 //        final GameState gameState = new GameState();
 //    }
     
-    @Test
-    public void testBlindStealerStrategy() {
-        gameState.setInAction(0);
-        assertEquals(200, org.leanpoker.player.Player.betRequest(gameState));
-        gameState.setInAction(1);
-        assertEquals(150, org.leanpoker.player.Player.betRequest(gameState));
-        gameState.setInAction(2);
-        assertEquals(0, org.leanpoker.player.Player.betRequest(gameState));
-    }
+//    @Test
+//    public void testBlindStealerStrategy() {
+//        gameState.setInAction(0);
+//        assertEquals(200, org.leanpoker.player.Player.betRequest(gameState));
+//        gameState.setInAction(1);
+//        assertEquals(150, org.leanpoker.player.Player.betRequest(gameState));
+//        gameState.setInAction(2);
+//        assertEquals(0, org.leanpoker.player.Player.betRequest(gameState));
+//    }
 }
