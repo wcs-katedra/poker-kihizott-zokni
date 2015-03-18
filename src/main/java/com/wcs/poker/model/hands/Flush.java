@@ -1,9 +1,17 @@
 package com.wcs.poker.model.hands;
 
+import java.util.List;
+
 public class Flush extends Hand {
 
+
     @Override
-    public boolean isAHand() {
+    public List<Hand> getAllPossibleHands() {
+        return null;
+    }
+
+    @Override
+    public boolean canMakeAHand() {
         return false;
     }
 
