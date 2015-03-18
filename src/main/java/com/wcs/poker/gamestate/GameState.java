@@ -1,11 +1,12 @@
 
 package com.wcs.poker.gamestate;
 
-import java.util.ArrayList;
-import java.util.List;
-import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+
+import javax.annotation.Generated;
+import java.util.ArrayList;
+import java.util.List;
 
 @Generated("org.jsonschema2pojo")
 public class GameState {
@@ -104,5 +105,25 @@ public class GameState {
 
     public void setCommunityCards(List<Card> communityCards) {
         this.communityCards = communityCards;
+    }
+
+    public Integer getBigBlind() {
+        return 2 * getSmallBlind();
+    }
+
+    public Player getCurrentPlayer() {
+        return getPlayers().get(getInAction());
+    }
+
+    public List<Card> getHoleCardsOfCurrentPlayer() {
+        return getCurrentPlayer().getHoleCards();
+    }
+
+    public Integer getCall() {
+        return getCurrentBuyIn() - getCurrentPlayer().getBet();
+    }
+
+    public Integer getMinimumBet() {
+        return getCall() + getMinimumRaise();
     }
 }
