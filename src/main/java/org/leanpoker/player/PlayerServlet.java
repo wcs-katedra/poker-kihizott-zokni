@@ -22,15 +22,15 @@ public class PlayerServlet extends HttpServlet {
         if (req.getParameter("action").equals("bet_request")) {
             String gameState = req.getParameter("game_state");
 
-            resp.getWriter().print(Player.betRequest(new JsonConverter<>(GameState.class).fromJson(gameState)));
+            resp.getWriter().print(BetRequestHandler.betRequest(new JsonConverter<>(GameState.class).fromJson(gameState)));
         }
         if (req.getParameter("action").equals("showdown")) {
             String gameState = req.getParameter("game_state");
 
-            Player.showdown(new JsonConverter<>(GameState.class).fromJson(gameState));
+            BetRequestHandler.showdown(new JsonConverter<>(GameState.class).fromJson(gameState));
         }
         if (req.getParameter("action").equals("version")) {
-            resp.getWriter().print(Player.VERSION);
+            resp.getWriter().print(BetRequestHandler.VERSION);
         }
     }
 }
