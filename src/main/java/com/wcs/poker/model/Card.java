@@ -1,5 +1,5 @@
 
-package com.wcs.poker.gamestate;
+package com.wcs.poker.model;
 
 import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;

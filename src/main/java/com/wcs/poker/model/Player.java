@@ -1,5 +1,5 @@
 
-package com.wcs.poker.gamestate;
+package com.wcs.poker.model;
 
 import java.util.ArrayList;
 import java.util.List;

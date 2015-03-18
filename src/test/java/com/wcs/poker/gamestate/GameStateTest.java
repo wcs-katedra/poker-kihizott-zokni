@@ -1,5 +1,7 @@
 package com.wcs.poker.gamestate;
 
+import com.wcs.poker.model.Card;
+import com.wcs.poker.model.Player;
 import org.junit.Before;
 import org.junit.Test;
 

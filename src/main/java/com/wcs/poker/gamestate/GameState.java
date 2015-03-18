@@ -3,6 +3,8 @@ package com.wcs.poker.gamestate;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.wcs.poker.model.Card;
+import com.wcs.poker.model.Player;
 
 import javax.annotation.Generated;
 import java.util.ArrayList;
