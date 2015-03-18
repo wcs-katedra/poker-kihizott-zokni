@@ -48,7 +48,7 @@ public class DefaultStrategy {
     }
 
     public void preFlopStrategy() {
-        bet = new PreFlopStrategy(gameState).getBet();
+        bet =  new PreFlopStrategy(gameState).getBet();
     }
 
     public void flopStrategy() {

@@ -14,19 +14,38 @@ import java.util.List;
  */
 public final class PreFlopStrategy {
 
-    private boolean filled = false;
+    private static List<Hand> raiseAtMiddleGamePhase = new ArrayList<>();
+    private static List<Hand> reraiseAtMiddleGamePhase = new ArrayList<>();
+    private static List<Hand> pushAtFinalGamePhaseLimped = new ArrayList<>();
+    private static List<Hand> pushAtFinalGamePhaseRaised = new ArrayList<>();
+
+    private static List<Hand> raiseAtEarlyGamePhaseEarlyPositionLimped = new ArrayList<>();
+    private static List<Hand> callAtEarlyGamePhaseEarlyPositionLimped = new ArrayList<>();
+    private static List<Hand> raiseAtEarlyGamePhaseEarlyPositionRaised = new ArrayList<>();
+    private static List<Hand> callAtEarlyGamePhaseEarlyPositionRaised = new ArrayList<>();
+
+    private static List<Hand> raiseAtEarlyGamePhaseMiddlePositionLimped = new ArrayList<>();
+    private static List<Hand> callAtEarlyGamePhaseMiddlePositionLimped = new ArrayList<>();
+    private static List<Hand> raiseAtEarlyGamePhaseMiddlePositionRaised = new ArrayList<>();
+    private static List<Hand> callAtEarlyGamePhaseMiddlePositionRaised = new ArrayList<>();
+
+    private static List<Hand> raiseAtEarlyGamePhaseBackPositionLimped = new ArrayList<>();
+    private static List<Hand> callAtEarlyGamePhaseBackPositionLimped = new ArrayList<>();
+    private static List<Hand> raiseAtEarlyGamePhaseBackPositionRaised = new ArrayList<>();
+    private static List<Hand> callAtEarlyGamePhaseBackPositionRaised = new ArrayList<>();
+
+    private static List<Hand> handsToUse = new ArrayList<>();
+
     private GameState gameState;
     private String gamePhase;
     private String position;
     private String potstatus;
 
-    public final String raise = "raise";
-    public final String call = "call";
-    public final String allin = "allin";
+    public static final String raise = "raise";
+    public static final String call  = "call";
+    public static final String allin  = "allin";
 
     private Hand hand;
-
-    private List<Hand> handsToUse;
     private String action;
 
     public PreFlopStrategy(GameState gameState) {
@@ -35,31 +54,8 @@ public final class PreFlopStrategy {
         position = new Position(gameState).getPosition();
         potstatus = new PotStatus(gameState).getPotStatus();
         hand = new Hand(gameState.getActualPlayer().getHoleCards().get(0), gameState.getActualPlayer().getHoleCards().get(1));
-        handsToUse = new ArrayList<>();
-        if(!filled){
-            loadHandLists();
-        }
+        loadHandLists();
     }
-
-    private static List<Hand> raiseAtMiddleGamePhase;
-    private static List<Hand> reraiseAtMiddleGamePhase;
-    private static List<Hand> pushAtFinalGamePhaseLimped;
-    private static List<Hand> pushAtFinalGamePhaseRaised;
-
-    private static List<Hand> raiseAtEarlyGamePhaseEarlyPositionLimped;
-    private static List<Hand> callAtEarlyGamePhaseEarlyPositionLimped;
-    private static List<Hand> raiseAtEarlyGamePhaseEarlyPositionRaised;
-    private static List<Hand> callAtEarlyGamePhaseEarlyPositionRaised;
-
-    private static List<Hand> raiseAtEarlyGamePhaseMiddlePositionLimped;
-    private static List<Hand> callAtEarlyGamePhaseMiddlePositionLimped;
-    private static List<Hand> raiseAtEarlyGamePhaseMiddlePositionRaised;
-    private static List<Hand> callAtEarlyGamePhaseMiddlePositionRaised;
-
-    private static List<Hand> raiseAtEarlyGamePhaseBackPositionLimped;
-    private static List<Hand> callAtEarlyGamePhaseBackPositionLimped;
-    private static List<Hand> raiseAtEarlyGamePhaseBackPositionRaised;
-    private static List<Hand> callAtEarlyGamePhaseBackPositionRaised;
 
     public int getBet() {
         checkGamePhase();
@@ -216,16 +212,13 @@ public final class PreFlopStrategy {
     public int action() {
         switch (action) {
             case raise: {
-                gameState.raise(2);
-                break;
+                return gameState.raise(2);
             }
             case call: {
-                gameState.Call();
-                break;
+                return gameState.Call();
             }
             case allin: {
-                gameState.allIn();
-                break;
+                return gameState.allIn();
             }
         }
         return 0;
