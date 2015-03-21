@@ -1,7 +1,7 @@
 package org.leanpoker.player;
 
 import com.wcs.poker.gamestate.Card;
-import com.wcs.poker.gamestate.DefaultStrategy;
+import com.wc.poker.strategy.DefaultStrategy;
 import com.wcs.poker.gamestate.GameState;
 import com.wcs.poker.gamestate.Player;
 import java.util.ArrayList;

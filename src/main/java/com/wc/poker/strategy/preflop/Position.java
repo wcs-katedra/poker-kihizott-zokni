@@ -1,5 +1,7 @@
-package com.wcs.poker.gamestate;
+package com.wc.poker.strategy.preflop;
 
+import com.wcs.poker.gamestate.GameState;
+import com.wcs.poker.gamestate.Player;
 import java.util.List;
 
 /**

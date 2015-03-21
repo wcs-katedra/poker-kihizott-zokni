@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.wcs.poker.gamestate;
+package com.wc.poker.strategy.preflop;
+
+import com.wcs.poker.gamestate.GameState;
 
 /**
  *

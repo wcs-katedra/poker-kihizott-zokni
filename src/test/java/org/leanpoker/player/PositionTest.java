@@ -6,7 +6,7 @@
 package org.leanpoker.player;
 
 import com.wcs.poker.gamestate.GameState;
-import com.wcs.poker.gamestate.Position;
+import com.wc.poker.strategy.preflop.Position;
 import com.wcs.poker.gamestate.Player;
 import java.util.ArrayList;
 import java.util.List;

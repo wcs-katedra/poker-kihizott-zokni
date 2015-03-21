@@ -7,7 +7,7 @@ package org.leanpoker.player;
 
 import com.wcs.poker.gamestate.Card;
 import com.wcs.poker.gamestate.GameState;
-import com.wcs.poker.gamestate.OrbPhase;
+import com.wc.poker.strategy.preflop.OrbPhase;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.Before;

@@ -176,8 +176,6 @@ public class GameState {
     public void setCommunityCards(List<Card> communityCards) {
         this.communityCards = communityCards;
     }
-    
-    
 
     public int Call() {
         return currentBuyIn - players.get(inAction).getBet();
@@ -205,5 +203,12 @@ public class GameState {
 
     public List<Card> getPlayerInActionHoleCards() {
         return getActualPlayer().getHoleCards();
+    }
+
+    public Hand getHand() {
+        if (!players.isEmpty() && !getPlayerInActionHoleCards().isEmpty()) {
+            return new Hand(getPlayerInActionHoleCards().get(0), getPlayerInActionHoleCards().get(1));
+        }
+        return null;
     }
 }

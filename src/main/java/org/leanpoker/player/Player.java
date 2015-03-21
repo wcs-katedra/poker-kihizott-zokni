@@ -1,6 +1,6 @@
 package org.leanpoker.player;
 
-import com.wcs.poker.gamestate.DefaultStrategy;
+import com.wc.poker.strategy.DefaultStrategy;
 import com.wcs.poker.gamestate.GameState;
 
 public class Player {
