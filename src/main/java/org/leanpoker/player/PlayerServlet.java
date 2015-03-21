@@ -1,5 +1,6 @@
 package org.leanpoker.player;
 
+import com.wc.poker.strategy.preflop.RangeLoader;
 import com.wcs.poker.gamestate.GameState;
 import com.wcs.poker.jsonconverter.JsonConverter;
 import javax.servlet.ServletException;
@@ -15,6 +16,7 @@ public class PlayerServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.getWriter().print("Java player is running");
+        new RangeLoader().loadHandLists();
     }
 
     @Override

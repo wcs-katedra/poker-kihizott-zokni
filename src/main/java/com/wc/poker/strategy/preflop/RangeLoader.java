@@ -17,17 +17,13 @@ public class RangeLoader {
     private int range;
 
     public void loadHandLists() {
+        loadHandRange();
         loadMiddlePhaseScales();
         loadFinalPhaseScales();
         loadEarlyPhaseScales();
     }
 
     private void loadHandRange() {
-        pairHandRange.add(new Hand(new Card("A", ""), new Card("A", "")));
-        pairHandRange.add(new Hand(new Card("K", ""), new Card("K", "")));
-        pairHandRange.add(new Hand(new Card("Q", ""), new Card("Q", "")));
-        pairHandRange.add(new Hand(new Card("J", ""), new Card("J", "")));
-        pairHandRange.add(new Hand(new Card("10", ""), new Card("10", "")));
         pairHandRange.add(new Hand(new Card("9", ""), new Card("9", "")));
         pairHandRange.add(new Hand(new Card("8", ""), new Card("8", "")));
         pairHandRange.add(new Hand(new Card("7", ""), new Card("7", "")));
@@ -37,141 +33,181 @@ public class RangeLoader {
         pairHandRange.add(new Hand(new Card("3", ""), new Card("3", "")));
         pairHandRange.add(new Hand(new Card("2", ""), new Card("2", "")));
 
+        otherHandRange.add(new Hand(new Card("A", ""), new Card("A", "")));
+        otherHandRange.add(new Hand(new Card("K", ""), new Card("K", "")));
+        otherHandRange.add(new Hand(new Card("Q", ""), new Card("Q", "")));
         otherHandRange.add(new Hand(new Card("A", ""), new Card("K", "")));
         otherHandRange.add(new Hand(new Card("A", ""), new Card("Q", "")));
+        otherHandRange.add(new Hand(new Card("J", ""), new Card("J", "")));
+        otherHandRange.add(new Hand(new Card("10", ""), new Card("10", "")));
         otherHandRange.add(new Hand(new Card("A", ""), new Card("J", "")));
         otherHandRange.add(new Hand(new Card("K", ""), new Card("Q", "")));
         otherHandRange.add(new Hand(new Card("A", ""), new Card("10", "")));
-
         otherHandRange.add(new Hand(new Card("K", ""), new Card("J", "")));
         otherHandRange.add(new Hand(new Card("K", ""), new Card("10", "")));
         otherHandRange.add(new Hand(new Card("Q", ""), new Card("J", "")));
         otherHandRange.add(new Hand(new Card("Q", ""), new Card("10", "")));
         otherHandRange.add(new Hand(new Card("A", ""), new Card("9", "")));
-
         otherHandRange.add(new Hand(new Card("J", ""), new Card("10", "")));
         otherHandRange.add(new Hand(new Card("A", ""), new Card("8", "")));
         otherHandRange.add(new Hand(new Card("K", ""), new Card("9", "")));
         otherHandRange.add(new Hand(new Card("Q", ""), new Card("9", "")));
         otherHandRange.add(new Hand(new Card("A", ""), new Card("6", "")));
-
         otherHandRange.add(new Hand(new Card("A", ""), new Card("5", "")));
         otherHandRange.add(new Hand(new Card("J", ""), new Card("9", "")));
         otherHandRange.add(new Hand(new Card("A", ""), new Card("4", "")));
         otherHandRange.add(new Hand(new Card("K", ""), new Card("8", "")));
         otherHandRange.add(new Hand(new Card("10", ""), new Card("9", "")));
-
         otherHandRange.add(new Hand(new Card("K", ""), new Card("7", "")));
         otherHandRange.add(new Hand(new Card("A", ""), new Card("3", "")));
         otherHandRange.add(new Hand(new Card("Q", ""), new Card("8", "")));
         otherHandRange.add(new Hand(new Card("A", ""), new Card("2", "")));
         otherHandRange.add(new Hand(new Card("K", ""), new Card("6", "")));
-
         otherHandRange.add(new Hand(new Card("J", ""), new Card("8", "")));
         otherHandRange.add(new Hand(new Card("10", ""), new Card("8", "")));
         otherHandRange.add(new Hand(new Card("K", ""), new Card("5", "")));
         otherHandRange.add(new Hand(new Card("Q", ""), new Card("7", "")));
         otherHandRange.add(new Hand(new Card("9", ""), new Card("8", "")));
-
         otherHandRange.add(new Hand(new Card("K", ""), new Card("4", "")));
         otherHandRange.add(new Hand(new Card("Q", ""), new Card("6", "")));
         otherHandRange.add(new Hand(new Card("J", ""), new Card("7", "")));
         otherHandRange.add(new Hand(new Card("10", ""), new Card("7", "")));
         otherHandRange.add(new Hand(new Card("K", ""), new Card("3", "")));
-
         otherHandRange.add(new Hand(new Card("9", ""), new Card("7", "")));
         otherHandRange.add(new Hand(new Card("Q", ""), new Card("5", "")));
         otherHandRange.add(new Hand(new Card("8", ""), new Card("7", "")));
         otherHandRange.add(new Hand(new Card("K", ""), new Card("2", "")));
         otherHandRange.add(new Hand(new Card("Q", ""), new Card("4", "")));
-
         otherHandRange.add(new Hand(new Card("J", ""), new Card("6", "")));
         otherHandRange.add(new Hand(new Card("10", ""), new Card("6", "")));
         otherHandRange.add(new Hand(new Card("8", ""), new Card("6", "")));
         otherHandRange.add(new Hand(new Card("7", ""), new Card("6", "")));
         otherHandRange.add(new Hand(new Card("Q", ""), new Card("3", "")));
-
         otherHandRange.add(new Hand(new Card("J", ""), new Card("5", "")));
         otherHandRange.add(new Hand(new Card("9", ""), new Card("6", "")));
         otherHandRange.add(new Hand(new Card("Q", ""), new Card("2", "")));
         otherHandRange.add(new Hand(new Card("J", ""), new Card("4", "")));
         otherHandRange.add(new Hand(new Card("6", ""), new Card("5", "")));
-
         otherHandRange.add(new Hand(new Card("10", ""), new Card("5", "")));
         otherHandRange.add(new Hand(new Card("7", ""), new Card("5", "")));
         otherHandRange.add(new Hand(new Card("J", ""), new Card("3", "")));
         otherHandRange.add(new Hand(new Card("9", ""), new Card("5", "")));
         otherHandRange.add(new Hand(new Card("8", ""), new Card("5", "")));
-
         otherHandRange.add(new Hand(new Card("10", ""), new Card("4", "")));
         otherHandRange.add(new Hand(new Card("J", ""), new Card("2", "")));
         otherHandRange.add(new Hand(new Card("5", ""), new Card("4", "")));
         otherHandRange.add(new Hand(new Card("10", ""), new Card("3", "")));
         otherHandRange.add(new Hand(new Card("6", ""), new Card("4", "")));
-
         otherHandRange.add(new Hand(new Card("7", ""), new Card("4", "")));
         otherHandRange.add(new Hand(new Card("10", ""), new Card("2", "")));
         otherHandRange.add(new Hand(new Card("9", ""), new Card("4", "")));
         otherHandRange.add(new Hand(new Card("8", ""), new Card("4", "")));
         otherHandRange.add(new Hand(new Card("9", ""), new Card("3", "")));
-
         otherHandRange.add(new Hand(new Card("5", ""), new Card("3", "")));
         otherHandRange.add(new Hand(new Card("9", ""), new Card("2", "")));
         otherHandRange.add(new Hand(new Card("4", ""), new Card("3", "")));
         otherHandRange.add(new Hand(new Card("7", ""), new Card("3", "")));
         otherHandRange.add(new Hand(new Card("6", ""), new Card("3", "")));
-
         otherHandRange.add(new Hand(new Card("8", ""), new Card("3", "")));
         otherHandRange.add(new Hand(new Card("5", ""), new Card("2", "")));
         otherHandRange.add(new Hand(new Card("8", ""), new Card("2", "")));
         otherHandRange.add(new Hand(new Card("6", ""), new Card("2", "")));
         otherHandRange.add(new Hand(new Card("4", ""), new Card("2", "")));
-
         otherHandRange.add(new Hand(new Card("3", ""), new Card("2", "")));
         otherHandRange.add(new Hand(new Card("7", ""), new Card("2", "")));
     }
 
     private void loadMiddlePhaseScales() {
-        range = (int) (otherHandRange.size() * 0.1);
+        range = (int) (otherHandRange.size() * 0.2);
         for (int i = 0; i < range; i++) {
             GamePhaseChecker.getRaiseAtMiddleGamePhase().add(otherHandRange.get(i));
         }
-        range = (int) (pairHandRange.size() * 0.1);
-        for (int i = 0; i < range; i++) {
-            GamePhaseChecker.getRaiseAtMiddleGamePhase().add(pairHandRange.get(i));
-        }
 
-        range = (int) (otherHandRange.size() * 0.1);
+        range = (int) (otherHandRange.size() * 0.15);
         for (int i = 0; i < range; i++) {
             GamePhaseChecker.getReraiseAtMiddleGamePhase().add(otherHandRange.get(i));
-        }
-        range = (int) (pairHandRange.size() * 0.1);
-        for (int i = 0; i < range; i++) {
-            GamePhaseChecker.getReraiseAtMiddleGamePhase().add(pairHandRange.get(i));
         }
     }
 
     private void loadFinalPhaseScales() {
-        range = (int) (otherHandRange.size() * 0.4);
+        range = (int) (otherHandRange.size() * 0.3);
         for (int i = 0; i < range; i++) {
             GamePhaseChecker.getPushAtFinalGamePhaseLimped().add(otherHandRange.get(i));
         }
-        range = (int) (pairHandRange.size() * 0.1);
+        range = (int) (pairHandRange.size() * 0.7);
         for (int i = 0; i < range; i++) {
             GamePhaseChecker.getPushAtFinalGamePhaseLimped().add(pairHandRange.get(i));
         }
 
-        range = (int) (otherHandRange.size() * 0.2);
+        range = (int) (otherHandRange.size() * 0.1);
         for (int i = 0; i < range; i++) {
             GamePhaseChecker.getPushAtFinalGamePhaseRaised().add(otherHandRange.get(i));
         }
-        range = (int) (otherHandRange.size() * 0.2);
+        range = (int) (pairHandRange.size() * 0.3);
         for (int i = 0; i < range; i++) {
             GamePhaseChecker.getPushAtFinalGamePhaseRaised().add(pairHandRange.get(i));
         }
     }
 
     private void loadEarlyPhaseScales() {
+        range = (int) (otherHandRange.size() * 0.1);
+        for (int i = 0; i < range; i++) {
+            PotStateChecker.getRaiseAtEarlyGamePhaseEarlyPositionLimped().add(otherHandRange.get(i));
+        }
 
+        range = (int) (pairHandRange.size());
+        for (int i = 0; i < range; i++) {
+            PotStateChecker.getCallAtEarlyGamePhaseEarlyPositionLimped().add(pairHandRange.get(i));
+        }
+
+        range = (int) (otherHandRange.size() * 0.05);
+        for (int i = 0; i < range; i++) {
+            PotStateChecker.getRaiseAtEarlyGamePhaseEarlyPositionRaised().add(otherHandRange.get(i));
+        }
+
+        range = (int) (otherHandRange.size() * 0.07);
+        for (int i = 0; i < range; i++) {
+            PotStateChecker.getCallAtEarlyGamePhaseEarlyPositionRaised().add(otherHandRange.get(i));
+        }
+
+        range = (int) (otherHandRange.size() * 0.15);
+        for (int i = 0; i < range; i++) {
+            PotStateChecker.getRaiseAtEarlyGamePhaseMiddlePositionLimped().add(otherHandRange.get(i));
+        }
+
+        range = (int) (pairHandRange.size());
+        for (int i = 0; i < range; i++) {
+            PotStateChecker.getCallAtEarlyGamePhaseMiddlePositionLimped().add(pairHandRange.get(i));
+        }
+
+        range = (int) (otherHandRange.size() * 0.05);
+        for (int i = 0; i < range; i++) {
+            PotStateChecker.getRaiseAtEarlyGamePhaseMiddlePositionRaised().add(otherHandRange.get(i));
+        }
+
+        range = (int) (otherHandRange.size() * 0.07);
+        for (int i = 0; i < range; i++) {
+            PotStateChecker.getCallAtEarlyGamePhaseMiddlePositionRaised().add(otherHandRange.get(i));
+        }
+
+        range = (int) (otherHandRange.size() * 0.2);
+        for (int i = 0; i < range; i++) {
+            PotStateChecker.getRaiseAtEarlyGamePhaseBackPositionLimped().add(otherHandRange.get(i));
+        }
+
+        range = (int) (pairHandRange.size());
+        for (int i = 0; i < range; i++) {
+            PotStateChecker.getCallAtEarlyGamePhaseBackPositionLimped().add(pairHandRange.get(i));
+        }
+
+        range = (int) (otherHandRange.size() * 0.07);
+        for (int i = 0; i < range; i++) {
+            PotStateChecker.getRaiseAtEarlyGamePhaseBackPositionRaised().add(otherHandRange.get(i));
+        }
+
+        range = (int) (otherHandRange.size() * 0.1);
+        for (int i = 0; i < range; i++) {
+            PotStateChecker.getCallAtEarlyGamePhaseBackPositionRaised().add(otherHandRange.get(i));
+        }
     }
 }

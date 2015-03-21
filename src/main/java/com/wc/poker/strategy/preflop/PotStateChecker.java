@@ -111,95 +111,47 @@ public class PotStateChecker {
         return raiseAtEarlyGamePhaseEarlyPositionLimped;
     }
 
-    public static void setRaiseAtEarlyGamePhaseEarlyPositionLimped(List<Hand> raiseAtEarlyGamePhaseEarlyPositionLimped) {
-        PotStateChecker.raiseAtEarlyGamePhaseEarlyPositionLimped = raiseAtEarlyGamePhaseEarlyPositionLimped;
-    }
-
     public static List<Hand> getCallAtEarlyGamePhaseEarlyPositionLimped() {
         return callAtEarlyGamePhaseEarlyPositionLimped;
-    }
-
-    public static void setCallAtEarlyGamePhaseEarlyPositionLimped(List<Hand> callAtEarlyGamePhaseEarlyPositionLimped) {
-        PotStateChecker.callAtEarlyGamePhaseEarlyPositionLimped = callAtEarlyGamePhaseEarlyPositionLimped;
     }
 
     public static List<Hand> getRaiseAtEarlyGamePhaseEarlyPositionRaised() {
         return raiseAtEarlyGamePhaseEarlyPositionRaised;
     }
 
-    public static void setRaiseAtEarlyGamePhaseEarlyPositionRaised(List<Hand> raiseAtEarlyGamePhaseEarlyPositionRaised) {
-        PotStateChecker.raiseAtEarlyGamePhaseEarlyPositionRaised = raiseAtEarlyGamePhaseEarlyPositionRaised;
-    }
-
     public static List<Hand> getCallAtEarlyGamePhaseEarlyPositionRaised() {
         return callAtEarlyGamePhaseEarlyPositionRaised;
-    }
-
-    public static void setCallAtEarlyGamePhaseEarlyPositionRaised(List<Hand> callAtEarlyGamePhaseEarlyPositionRaised) {
-        PotStateChecker.callAtEarlyGamePhaseEarlyPositionRaised = callAtEarlyGamePhaseEarlyPositionRaised;
     }
 
     public static List<Hand> getRaiseAtEarlyGamePhaseMiddlePositionLimped() {
         return raiseAtEarlyGamePhaseMiddlePositionLimped;
     }
 
-    public static void setRaiseAtEarlyGamePhaseMiddlePositionLimped(List<Hand> raiseAtEarlyGamePhaseMiddlePositionLimped) {
-        PotStateChecker.raiseAtEarlyGamePhaseMiddlePositionLimped = raiseAtEarlyGamePhaseMiddlePositionLimped;
-    }
-
     public static List<Hand> getCallAtEarlyGamePhaseMiddlePositionLimped() {
         return callAtEarlyGamePhaseMiddlePositionLimped;
-    }
-
-    public static void setCallAtEarlyGamePhaseMiddlePositionLimped(List<Hand> callAtEarlyGamePhaseMiddlePositionLimped) {
-        PotStateChecker.callAtEarlyGamePhaseMiddlePositionLimped = callAtEarlyGamePhaseMiddlePositionLimped;
     }
 
     public static List<Hand> getRaiseAtEarlyGamePhaseMiddlePositionRaised() {
         return raiseAtEarlyGamePhaseMiddlePositionRaised;
     }
 
-    public static void setRaiseAtEarlyGamePhaseMiddlePositionRaised(List<Hand> raiseAtEarlyGamePhaseMiddlePositionRaised) {
-        PotStateChecker.raiseAtEarlyGamePhaseMiddlePositionRaised = raiseAtEarlyGamePhaseMiddlePositionRaised;
-    }
-
     public static List<Hand> getCallAtEarlyGamePhaseMiddlePositionRaised() {
         return callAtEarlyGamePhaseMiddlePositionRaised;
-    }
-
-    public static void setCallAtEarlyGamePhaseMiddlePositionRaised(List<Hand> callAtEarlyGamePhaseMiddlePositionRaised) {
-        PotStateChecker.callAtEarlyGamePhaseMiddlePositionRaised = callAtEarlyGamePhaseMiddlePositionRaised;
     }
 
     public static List<Hand> getRaiseAtEarlyGamePhaseBackPositionLimped() {
         return raiseAtEarlyGamePhaseBackPositionLimped;
     }
 
-    public static void setRaiseAtEarlyGamePhaseBackPositionLimped(List<Hand> raiseAtEarlyGamePhaseBackPositionLimped) {
-        PotStateChecker.raiseAtEarlyGamePhaseBackPositionLimped = raiseAtEarlyGamePhaseBackPositionLimped;
-    }
-
     public static List<Hand> getCallAtEarlyGamePhaseBackPositionLimped() {
         return callAtEarlyGamePhaseBackPositionLimped;
-    }
-
-    public static void setCallAtEarlyGamePhaseBackPositionLimped(List<Hand> callAtEarlyGamePhaseBackPositionLimped) {
-        PotStateChecker.callAtEarlyGamePhaseBackPositionLimped = callAtEarlyGamePhaseBackPositionLimped;
     }
 
     public static List<Hand> getRaiseAtEarlyGamePhaseBackPositionRaised() {
         return raiseAtEarlyGamePhaseBackPositionRaised;
     }
-
-    public static void setRaiseAtEarlyGamePhaseBackPositionRaised(List<Hand> raiseAtEarlyGamePhaseBackPositionRaised) {
-        PotStateChecker.raiseAtEarlyGamePhaseBackPositionRaised = raiseAtEarlyGamePhaseBackPositionRaised;
-    }
-
+    
     public static List<Hand> getCallAtEarlyGamePhaseBackPositionRaised() {
         return callAtEarlyGamePhaseBackPositionRaised;
-    }
-
-    public static void setCallAtEarlyGamePhaseBackPositionRaised(List<Hand> callAtEarlyGamePhaseBackPositionRaised) {
-        PotStateChecker.callAtEarlyGamePhaseBackPositionRaised = callAtEarlyGamePhaseBackPositionRaised;
     }
 }

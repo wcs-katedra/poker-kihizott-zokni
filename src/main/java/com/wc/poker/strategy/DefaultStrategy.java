@@ -8,6 +8,7 @@ package com.wc.poker.strategy;
 import com.wcs.poker.gamestate.GameState;
 import com.wc.poker.strategy.preflop.OrbPhase;
 import com.wc.poker.strategy.preflop.PreFlopStrategy;
+import com.wc.poker.strategy.preflop.RangeLoader;
 
 /**
  *
@@ -17,6 +18,7 @@ public class DefaultStrategy {
 
     private GameState gameState;
     private String orbPhase;
+    private RangeLoader rl;
 
     private int bet;
 

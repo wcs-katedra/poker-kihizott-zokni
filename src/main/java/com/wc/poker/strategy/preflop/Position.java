@@ -34,10 +34,9 @@ public class Position {
 
     public int getNumberOfPosition() {
         //átrendezzük a listát úgy hogy a dealer legyen a 0. index
-        int i = 0;
-        while (players.get(i).getId() != dealer) {
-            players.add(players.get(i));
-            players.remove(i);
+        while (players.get(0).getId() != dealer) {
+            players.add(players.get(0));
+            players.remove(0);
         }
         positionNumber = 0;
         // megnézzük hogy a listában hányadik az aktív player az lesz a pozíciója
