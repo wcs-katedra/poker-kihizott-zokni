@@ -1,6 +1,8 @@
 
 package com.wc.poker.strategy.preflop;
 
+import com.wc.poker.strategy.preflop.enums.Actions;
+import com.wc.poker.strategy.preflop.enums.Pot;
 import com.wcs.poker.gamestate.GameState;
 import com.wcs.poker.gamestate.Hand;
 import java.util.ArrayList;
@@ -13,7 +15,7 @@ import java.util.List;
 public class PotStateChecker {
 
     private GameState gameState;
-    private String potstatus;
+    private Pot potstatus;
 
     private static List<Hand> raiseAtEarlyGamePhaseEarlyPositionLimped = new ArrayList<>();
     private static List<Hand> callAtEarlyGamePhaseEarlyPositionLimped = new ArrayList<>();
@@ -37,22 +39,22 @@ public class PotStateChecker {
 
     public void checkPotStatusEGPEP() {
         switch (potstatus) {
-            case PotStatus.cleanPot:
-            case PotStatus.limpedPot: {
+            case CLEAN:
+            case LIMPED: {
                 PreFlopStrategy.setHandsToUse(raiseAtEarlyGamePhaseEarlyPositionLimped);
-                PreFlopStrategy.setAction(Action.raise);
+                PreFlopStrategy.setAction(Actions.RAISE);
                 if (PreFlopStrategy.getHandsToUse().isEmpty()) {
                     PreFlopStrategy.setHandsToUse(callAtEarlyGamePhaseEarlyPositionLimped);
-                    PreFlopStrategy.setAction(Action.call);
+                    PreFlopStrategy.setAction(Actions.CALL);
                 }
                 break;
             }
-            case PotStatus.raisedPot: {
+            case RAISED: {
                 PreFlopStrategy.setHandsToUse(raiseAtEarlyGamePhaseEarlyPositionRaised);
-                PreFlopStrategy.setAction(Action.raise);
+                PreFlopStrategy.setAction(Actions.RAISE);
                 if (PreFlopStrategy.getHandsToUse().isEmpty()) {
                     PreFlopStrategy.setHandsToUse(callAtEarlyGamePhaseEarlyPositionRaised);
-                    PreFlopStrategy.setAction(Action.call);
+                    PreFlopStrategy.setAction(Actions.CALL);
                 }
                 break;
             }
@@ -61,22 +63,22 @@ public class PotStateChecker {
 
     public void checkPotStatusEGPMP() {
         switch (potstatus) {
-            case PotStatus.limpedPot:
-            case PotStatus.cleanPot: {
+            case LIMPED:
+            case CLEAN: {
                 PreFlopStrategy.setHandsToUse(raiseAtEarlyGamePhaseMiddlePositionLimped);
-                PreFlopStrategy.setAction(Action.raise);
+                PreFlopStrategy.setAction(Actions.RAISE);
                 if (PreFlopStrategy.getHandsToUse().isEmpty()) {
                     PreFlopStrategy.setHandsToUse(callAtEarlyGamePhaseMiddlePositionLimped);
-                    PreFlopStrategy.setAction(Action.call);
+                    PreFlopStrategy.setAction(Actions.CALL);
                 }
                 break;
             }
-            case PotStatus.raisedPot: {
+            case RAISED: {
                 PreFlopStrategy.setHandsToUse(raiseAtEarlyGamePhaseMiddlePositionRaised);
-                PreFlopStrategy.setAction(Action.raise);
+                PreFlopStrategy.setAction(Actions.RAISE);
                 if (PreFlopStrategy.getHandsToUse().isEmpty()) {
                     PreFlopStrategy.setHandsToUse(callAtEarlyGamePhaseMiddlePositionRaised);
-                    PreFlopStrategy.setAction(Action.call);
+                    PreFlopStrategy.setAction(Actions.CALL);
                 }
                 break;
             }
@@ -85,22 +87,22 @@ public class PotStateChecker {
 
     public void checkPotStatusEGPBP() {
         switch (potstatus) {
-            case PotStatus.limpedPot:
-            case PotStatus.cleanPot: {
+            case LIMPED:
+            case CLEAN: {
                 PreFlopStrategy.setHandsToUse(raiseAtEarlyGamePhaseBackPositionLimped);
-                PreFlopStrategy.setAction(Action.raise);
+                PreFlopStrategy.setAction(Actions.RAISE);
                 if (PreFlopStrategy.getHandsToUse().isEmpty()) {
                     PreFlopStrategy.setHandsToUse(callAtEarlyGamePhaseBackPositionLimped);
-                    PreFlopStrategy.setAction(Action.call);
+                    PreFlopStrategy.setAction(Actions.CALL);
                 }
                 break;
             }
-            case PotStatus.raisedPot: {
+            case RAISED: {
                 PreFlopStrategy.setHandsToUse(raiseAtEarlyGamePhaseBackPositionRaised);
-                PreFlopStrategy.setAction(Action.raise);
+                PreFlopStrategy.setAction(Actions.RAISE);
                 if (PreFlopStrategy.getHandsToUse().isEmpty()) {
                     PreFlopStrategy.setHandsToUse(callAtEarlyGamePhaseBackPositionRaised);
-                    PreFlopStrategy.setAction(Action.call);
+                    PreFlopStrategy.setAction(Actions.CALL);
                 }
                 break;
             }

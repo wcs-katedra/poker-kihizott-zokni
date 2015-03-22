@@ -5,6 +5,7 @@
  */
 package com.wc.poker.strategy.preflop;
 
+import com.wc.poker.strategy.preflop.enums.GamePhases;
 import com.wcs.poker.gamestate.GameState;
 
 /**
@@ -13,26 +14,22 @@ import com.wcs.poker.gamestate.GameState;
  */
 public class GamePhase {
 
-    private GameState gameState;
+	private GameState gameState;
 
-    public static final String earlyGamePhase = "early";
-    public static final String middleGamePhase = "middle";
-    public static final String finalGamePhase = "final";
+	private int stackInBBs;
 
-    private int stackInBBs;
+	public GamePhase(GameState gameState) {
+		this.gameState = gameState;
+		stackInBBs = gameState.getStackSizeInBBs();
+	}
 
-    public GamePhase(GameState gameState) {
-        this.gameState = gameState;
-        stackInBBs = gameState.getStackSizeInBBs();
-    }
-
-    public String evaluateGamePhase() {
-        if (stackInBBs > 24) {
-            return earlyGamePhase;
-        }
-        if (stackInBBs > 13 && stackInBBs <= 24) {
-            return middleGamePhase;
-        }
-        return finalGamePhase;
-    }
+	public GamePhases evaluateGamePhase() {
+		if (stackInBBs > 24) {
+			return GamePhases.EARLY_PHASE;
+		}
+		if (stackInBBs > 13 && stackInBBs <= 24) {
+			return GamePhases.MIDDLE_PHASE;
+		}
+		return GamePhases.FINAL_PHASE;
+	}
 }

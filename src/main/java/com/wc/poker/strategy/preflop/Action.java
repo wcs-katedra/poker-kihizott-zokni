@@ -5,6 +5,7 @@
  */
 package com.wc.poker.strategy.preflop;
 
+import com.wc.poker.strategy.preflop.enums.Actions;
 import com.wcs.poker.gamestate.GameState;
 
 /**
@@ -13,27 +14,23 @@ import com.wcs.poker.gamestate.GameState;
  */
 public class Action {
 
-    private String action;
+    private Actions action;
     private GameState gameState;
 
-    public static final String raise = "raise";
-    public static final String call = "call";
-    public static final String allin = "allin";
-
-    public Action(GameState gameState, String action) {
+    public Action(GameState gameState, Actions action) {
         this.gameState = gameState;
         this.action = action;
     }
 
     public int action() {
         switch (action) {
-            case raise: {
+            case RAISE: {
                 return gameState.raise(2);
             }
-            case call: {
+            case CALL: {
                 return gameState.Call();
             }
-            case allin: {
+            case ALL_IN: {
                 return gameState.allIn();
             }
         }

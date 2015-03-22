@@ -7,6 +7,7 @@ package org.leanpoker.player;
 
 import com.wcs.poker.gamestate.GameState;
 import com.wc.poker.strategy.preflop.PotStatus;
+import com.wc.poker.strategy.preflop.enums.Pot;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -29,15 +30,15 @@ public class PotStatusTest {
 
     @Test
     public void executeShouldReturnProperPotStatus() {
-        assertEquals("CLN", potStatus.getPotStatus());
+        assertEquals(Pot.CLEAN, potStatus.getPotStatus());
         
         gameState.setPot(500);
         potStatus = new PotStatus(gameState);
-        assertEquals("LMPD", potStatus.getPotStatus());
+        assertEquals(Pot.LIMPED, potStatus.getPotStatus());
         
         gameState.setCurrentBuyIn(400);
         gameState.setPot(500);
         potStatus = new PotStatus(gameState);
-        assertEquals("RSD", potStatus.getPotStatus());
+        assertEquals(Pot.RAISED, potStatus.getPotStatus());
     }
 }

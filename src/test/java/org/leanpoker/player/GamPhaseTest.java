@@ -1,6 +1,7 @@
 package org.leanpoker.player;
 
 import com.wc.poker.strategy.preflop.GamePhase;
+import com.wc.poker.strategy.preflop.enums.GamePhases;
 import com.wcs.poker.gamestate.GameState;
 import com.wcs.poker.gamestate.Player;
 import java.util.ArrayList;
@@ -41,7 +42,7 @@ public class GamPhaseTest {
         players.add(player);
         gameState.setPlayers(players);
         gamePhase = new GamePhase(gameState);
-        assertEquals("final", gamePhase.evaluateGamePhase());
+        assertEquals(GamePhases.FINAL_PHASE, gamePhase.evaluateGamePhase());
     }
 
     @Test
@@ -50,7 +51,7 @@ public class GamPhaseTest {
         players.add(player);
         gameState.setPlayers(players);
         gamePhase = new GamePhase(gameState);
-        assertEquals("middle", gamePhase.evaluateGamePhase());
+        assertEquals(GamePhases.MIDDLE_PHASE, gamePhase.evaluateGamePhase());
     }
 
     @Test
@@ -59,6 +60,6 @@ public class GamPhaseTest {
         players.add(player);
         gameState.setPlayers(players);
         gamePhase = new GamePhase(gameState);
-        assertEquals("early", gamePhase.evaluateGamePhase());
+        assertEquals(GamePhases.EARLY_PHASE, gamePhase.evaluateGamePhase());
     }
 }

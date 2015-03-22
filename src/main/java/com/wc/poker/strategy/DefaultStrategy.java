@@ -9,6 +9,7 @@ import com.wcs.poker.gamestate.GameState;
 import com.wc.poker.strategy.preflop.OrbPhase;
 import com.wc.poker.strategy.preflop.PreFlopStrategy;
 import com.wc.poker.strategy.preflop.RangeLoader;
+import com.wc.poker.strategy.preflop.enums.OrbPhases;
 
 /**
  *
@@ -17,7 +18,7 @@ import com.wc.poker.strategy.preflop.RangeLoader;
 public class DefaultStrategy {
 
     private GameState gameState;
-    private String orbPhase;
+    private OrbPhases orbPhase;
     private RangeLoader rl;
 
     private int bet;
@@ -34,19 +35,19 @@ public class DefaultStrategy {
 
     public void buildScale() {
         switch (orbPhase) {
-            case OrbPhase.preFlop: {
+            case PRE_FLOP: {
                 preFlopStrategy();
                 break;
             }
-            case OrbPhase.flop: {
+            case FLOP: {
                 flopStrategy();
                 break;
             }
-            case OrbPhase.turn: {
+            case TURN: {
                 turnStrategy();
                 break;
             }
-            case OrbPhase.river: {
+            case RIVER: {
                 riverStrategy();
                 break;
             }

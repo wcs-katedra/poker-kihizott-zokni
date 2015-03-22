@@ -5,6 +5,7 @@
  */
 package com.wc.poker.strategy.preflop;
 
+import com.wc.poker.strategy.preflop.enums.Pot;
 import com.wcs.poker.gamestate.GameState;
 
 /**
@@ -12,10 +13,6 @@ import com.wcs.poker.gamestate.GameState;
  * @author Admin
  */
 public class PotStatus {
-
-    public static final String cleanPot = "CLN";
-    public static final String limpedPot = "LMPD";
-    public static final String raisedPot = "RSD";
 
     private GameState gameState;
     private int buyIn;
@@ -31,13 +28,13 @@ public class PotStatus {
         buyIn = gameState.getCurrentBuyIn();
     }
 
-    public String getPotStatus() {
+    public Pot getPotStatus() {
         if (buyIn > bigBlind) {
-            return raisedPot;
+            return Pot.RAISED;
         }
         if (pot == 3 * smallBlind) {
-            return cleanPot;
+            return Pot.CLEAN;
         }
-        return limpedPot;
+        return Pot.LIMPED;
     }
 }

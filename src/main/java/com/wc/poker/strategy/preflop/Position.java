@@ -1,5 +1,6 @@
 package com.wc.poker.strategy.preflop;
 
+import com.wc.poker.strategy.preflop.enums.Positions;
 import com.wcs.poker.gamestate.GameState;
 import com.wcs.poker.gamestate.Player;
 import java.util.List;
@@ -15,7 +16,7 @@ public class Position {
     private int dealer;
     private List<Player> players;
     private int numberOfPlayers;
-    private String position;
+    private Positions position;
     private int positionNumber;
 
     public Position(GameState gameState) {
@@ -25,12 +26,6 @@ public class Position {
         activePlayer = gameState.getInAction();
         dealer = gameState.getDealer();
     }
-
-    public static final String smallBlind = "SB";
-    public static final String bigBlind = "BB";
-    public static final String earlyPosition = "EP";
-    public static final String middlePosition = "MP";
-    public static final String backPosition = "BP";
 
     public int getNumberOfPosition() {
         //átrendezzük a listát úgy hogy a dealer legyen a 0. index
@@ -95,28 +90,28 @@ public class Position {
     public void evaluatePositionAtTenPlayer() {
         switch (positionNumber) {
             case 1: {
-                position = smallBlind;
+                position = Positions.SMALL_BLIND;
                 break;
             }
             case 2: {
-                position = bigBlind;
+                position = Positions.BIG_BLIND;
                 break;
             }
             case 3:
             case 4:
             case 5: {
-                position = earlyPosition;
+                position = Positions.EARLY_POSITION;
                 break;
             }
             case 6:
             case 7:
             case 8: {
-                position = middlePosition;
+                position = Positions.MIDDLE_POSITION;
                 break;
             }
             case 9:
             case 0: {
-                position = backPosition;
+                position = Positions.BACK_POSITION;
                 break;
             }
         }
@@ -125,27 +120,27 @@ public class Position {
     public void evaluatePositionAtNinePlayer() {
         switch (positionNumber) {
             case 1: {
-                position = smallBlind;
+                position = Positions.SMALL_BLIND;
                 break;
             }
             case 2: {
-                position = bigBlind;
+                position = Positions.BIG_BLIND;
                 break;
             }
             case 3:
             case 4: {
-                position = earlyPosition;
+                position = Positions.EARLY_POSITION;
                 break;
             }
             case 5:
             case 6:
             case 7: {
-                position = middlePosition;
+                position = Positions.MIDDLE_POSITION;
                 break;
             }
             case 8:
             case 0: {
-                position = backPosition;
+                position = Positions.BACK_POSITION;
                 break;
             }
         }
@@ -154,26 +149,26 @@ public class Position {
     public void evaluatePositionAtEightPlayer() {
         switch (positionNumber) {
             case 1: {
-                position = smallBlind;
+                position = Positions.SMALL_BLIND;
                 break;
             }
             case 2: {
-                position = bigBlind;
+                position = Positions.BIG_BLIND;
                 break;
             }
             case 3: {
-                position = earlyPosition;
+                position = Positions.EARLY_POSITION;
                 break;
             }
             case 4:
             case 5:
             case 6: {
-                position = middlePosition;
+                position = Positions.MIDDLE_POSITION;
                 break;
             }
             case 7:
             case 0: {
-                position = backPosition;
+                position = Positions.BACK_POSITION;
                 break;
             }
         }
@@ -182,22 +177,22 @@ public class Position {
     public void evaluatePositionAtSevenPlayer() {
         switch (positionNumber) {
             case 1: {
-                position = smallBlind;
+                position = Positions.SMALL_BLIND;
                 break;
             }
             case 2: {
-                position = bigBlind;
+                position = Positions.BIG_BLIND;
                 break;
             }
             case 3:
             case 4:
             case 5: {
-                position = middlePosition;
+                position = Positions.MIDDLE_POSITION;
                 break;
             }
             case 6:
             case 0: {
-                position = backPosition;
+                position = Positions.BACK_POSITION;
                 break;
             }
         }
@@ -206,21 +201,21 @@ public class Position {
     public void evaluatePositionAtSixPlayer() {
         switch (positionNumber) {
             case 1: {
-                position = smallBlind;
+                position = Positions.SMALL_BLIND;
                 break;
             }
             case 2: {
-                position = bigBlind;
+                position = Positions.BIG_BLIND;
                 break;
             }
             case 3:
             case 4: {
-                position = middlePosition;
+                position = Positions.MIDDLE_POSITION;
                 break;
             }
             case 5:
             case 0: {
-                position = backPosition;
+                position = Positions.BACK_POSITION;
                 break;
             }
         }
@@ -229,20 +224,20 @@ public class Position {
     public void evaluatePositionAtFivePlayer() {
         switch (positionNumber) {
             case 1: {
-                position = smallBlind;
+                position = Positions.SMALL_BLIND;
                 break;
             }
             case 2: {
-                position = bigBlind;
+                position = Positions.BIG_BLIND;
                 break;
             }
             case 3: {
-                position = middlePosition;
+                position = Positions.MIDDLE_POSITION;
                 break;
             }
             case 4:
             case 0: {
-                position = backPosition;
+                position = Positions.BACK_POSITION;
                 break;
             }
         }
@@ -251,16 +246,16 @@ public class Position {
     public void evaluatePositionAtFourPlayer() {
         switch (positionNumber) {
             case 1: {
-                position = smallBlind;
+                position = Positions.SMALL_BLIND;
                 break;
             }
             case 2: {
-                position = bigBlind;
+                position = Positions.BIG_BLIND;
                 break;
             }
             case 3:
             case 0: {
-                position = backPosition;
+                position = Positions.BACK_POSITION;
                 break;
             }
         }
@@ -269,15 +264,15 @@ public class Position {
     public void evaluatePositionAtThreePlayer() {
         switch (positionNumber) {
             case 1: {
-                position = smallBlind;
+                position = Positions.SMALL_BLIND;
                 break;
             }
             case 2: {
-                position = bigBlind;
+                position = Positions.BIG_BLIND;
                 break;
             }
             case 0: {
-                position = backPosition;
+                position = Positions.BACK_POSITION;
                 break;
             }
         }
@@ -286,17 +281,17 @@ public class Position {
     public void evaluatePositionAtTwoPlayer() {
         switch (positionNumber) {
             case 1: {
-                position = smallBlind;
+                position = Positions.SMALL_BLIND;
                 break;
             }
             case 0: {
-                position = bigBlind;
+                position = Positions.BIG_BLIND;
                 break;
             }
         }
     }
 
-    public String getPosition() {
+    public Positions getPosition() {
         getNumberOfPosition();
         evaluatePosition();
         return position;

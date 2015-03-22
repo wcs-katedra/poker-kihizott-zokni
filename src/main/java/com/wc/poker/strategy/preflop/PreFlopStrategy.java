@@ -1,6 +1,8 @@
 
 package com.wc.poker.strategy.preflop;
 
+import com.wc.poker.strategy.preflop.enums.Actions;
+import com.wc.poker.strategy.preflop.enums.GamePhases;
 import com.wcs.poker.gamestate.GameState;
 import com.wcs.poker.gamestate.Hand;
 import java.util.ArrayList;
@@ -13,11 +15,11 @@ import java.util.List;
 public final class PreFlopStrategy {
 
     private GameState gameState;
-    private String gamePhase;
+    private GamePhases gamePhase;
     
     private Hand hand;
     
-    private static String action;
+    private static Actions action;
     private static List<Hand> handsToUse = new ArrayList<>();
 
     public PreFlopStrategy(GameState gameState) {
@@ -39,15 +41,15 @@ public final class PreFlopStrategy {
     public void checkGamePhase() {
         GamePhaseChecker gpc = new GamePhaseChecker(gameState);
         switch (gamePhase) {
-            case GamePhase.earlyGamePhase: {
+            case EARLY_PHASE: {
                 gpc.earlyGamePhase();
                 break;
             }
-            case GamePhase.middleGamePhase: {
+            case MIDDLE_PHASE: {
                 gpc.middleGamePhase();
                 break;
             }
-            case GamePhase.finalGamePhase: {
+            case FINAL_PHASE: {
                 gpc.finalGamePhase();
                 break;
             }
@@ -68,7 +70,7 @@ public final class PreFlopStrategy {
         return handsToUse;
     }
 
-    public static void setAction(String action) {
+    public static void setAction(Actions action) {
         PreFlopStrategy.action = action;
     }
 }

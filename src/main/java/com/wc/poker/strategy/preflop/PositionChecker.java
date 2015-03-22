@@ -1,6 +1,7 @@
 
 package com.wc.poker.strategy.preflop;
 
+import com.wc.poker.strategy.preflop.enums.Positions;
 import com.wcs.poker.gamestate.GameState;
 
 /**
@@ -9,7 +10,7 @@ import com.wcs.poker.gamestate.GameState;
  */
 public class PositionChecker {
 
-    private String position;
+    private Positions position;
     private GameState gameState;
 
     public PositionChecker(GameState gameState) {
@@ -20,11 +21,11 @@ public class PositionChecker {
     public void checkPositionEGP() {
         PotStateChecker psc = new PotStateChecker(gameState);
         switch (position) {
-            case Position.earlyPosition: {
+            case EARLY_POSITION: {
                 psc.checkPotStatusEGPEP();
                 break;
             }
-            case Position.middlePosition: {
+            case MIDDLE_POSITION: {
                 psc.checkPotStatusEGPMP();
                 break;
             }

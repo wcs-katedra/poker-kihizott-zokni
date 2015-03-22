@@ -7,6 +7,7 @@ package org.leanpoker.player;
 
 import com.wcs.poker.gamestate.GameState;
 import com.wc.poker.strategy.preflop.Position;
+import com.wc.poker.strategy.preflop.enums.Positions;
 import com.wcs.poker.gamestate.Player;
 import java.util.ArrayList;
 import java.util.List;
@@ -93,11 +94,11 @@ public class PositionTest {
         gameState.setDealer(8);
         gameState.setInAction(2);
         position = new Position(gameState);
-        assertEquals("EP", position.getPosition());
+        assertEquals(Positions.EARLY_POSITION, position.getPosition());
 
         gameState.setDealer(4);
         gameState.setInAction(6);
         position = new Position(gameState);
-        assertEquals("BB", position.getPosition());
+        assertEquals(Positions.BIG_BLIND, position.getPosition());
     }
 }

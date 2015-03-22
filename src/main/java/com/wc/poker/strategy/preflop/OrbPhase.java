@@ -5,6 +5,7 @@
  */
 package com.wc.poker.strategy.preflop;
 
+import com.wc.poker.strategy.preflop.enums.OrbPhases;
 import com.wcs.poker.gamestate.GameState;
 
 /**
@@ -13,33 +14,28 @@ import com.wcs.poker.gamestate.GameState;
  */
 public class OrbPhase {
 
-    private GameState gameState;
-    private int communityCardsNumber;
+	private GameState gameState;
+	private int communityCardsNumber;
 
-    public OrbPhase(GameState gameState) {
-        this.gameState = gameState;
-        communityCardsNumber = gameState.getCommunityCards().size();
-    }
+	public OrbPhase(GameState gameState) {
+		this.gameState = gameState;
+		communityCardsNumber = gameState.getCommunityCards().size();
+	}
 
-    public static final String preFlop = "preflop";
-    public static final String flop = "flop";
-    public static final String turn = "turn";
-    public static final String river = "river";
-
-    public String evaluateOrbPhase() {
-        switch (communityCardsNumber) {
-            case 3: {
-                return flop;
-            }
-            case 4: {
-                return turn;
-            }
-            case 5: {
-                return river;
-            }
-            default: {
-                return preFlop;
-            }
-        }
-    }
+	public OrbPhases evaluateOrbPhase() {
+		switch (communityCardsNumber) {
+			case 3: {
+				return OrbPhases.FLOP;
+			}
+			case 4: {
+				return OrbPhases.TURN;
+			}
+			case 5: {
+				return OrbPhases.RIVER;
+			}
+			default: {
+				return OrbPhases.PRE_FLOP;
+			}
+		}
+	}
 }

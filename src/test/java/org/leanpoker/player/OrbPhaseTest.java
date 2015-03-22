@@ -8,6 +8,7 @@ package org.leanpoker.player;
 import com.wcs.poker.gamestate.Card;
 import com.wcs.poker.gamestate.GameState;
 import com.wc.poker.strategy.preflop.OrbPhase;
+import com.wc.poker.strategy.preflop.enums.OrbPhases;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.Before;
@@ -39,7 +40,7 @@ public class OrbPhaseTest {
     public void testIfOrbPhaseEqualsPreFlop() {
         gameState.setCommunityCards(communityCards);
         orbPhase = new OrbPhase(gameState);
-        assertEquals("preflop", orbPhase.evaluateOrbPhase());
+        assertEquals(OrbPhases.PRE_FLOP, orbPhase.evaluateOrbPhase());
     }
 
     @Test
@@ -49,7 +50,7 @@ public class OrbPhaseTest {
         communityCards.add(card);
         gameState.setCommunityCards(communityCards);
         orbPhase = new OrbPhase(gameState);
-        assertEquals("flop", orbPhase.evaluateOrbPhase());
+        assertEquals(OrbPhases.FLOP, orbPhase.evaluateOrbPhase());
     }
 
     @Test
@@ -60,7 +61,7 @@ public class OrbPhaseTest {
         communityCards.add(card);
         gameState.setCommunityCards(communityCards);
         orbPhase = new OrbPhase(gameState);
-        assertEquals("turn", orbPhase.evaluateOrbPhase());
+        assertEquals(OrbPhases.TURN, orbPhase.evaluateOrbPhase());
     }
 
     @Test
@@ -72,7 +73,7 @@ public class OrbPhaseTest {
         communityCards.add(card);
         gameState.setCommunityCards(communityCards);
         orbPhase = new OrbPhase(gameState);
-        assertEquals("river", orbPhase.evaluateOrbPhase());
+        assertEquals(OrbPhases.RIVER, orbPhase.evaluateOrbPhase());
 
     }
 
