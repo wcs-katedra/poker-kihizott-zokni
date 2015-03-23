@@ -11,7 +11,6 @@ import com.wcs.poker.gamestate.GameState;
 import com.wcs.poker.gamestate.Player;
 import java.util.ArrayList;
 import java.util.List;
-import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.BeforeClass;
@@ -66,7 +65,7 @@ public class PreFlopStrategyTest {
     }
     
     @Test
-    public void test() {
+    public void testBet() {
         assertEquals(pfs.getBet(), 60);
     }
     

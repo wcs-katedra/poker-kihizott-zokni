@@ -17,12 +17,16 @@ public class RangeLoader {
     private static List<Hand> pairHandRange = new ArrayList<>();
 
     private int range;
+    private boolean loaded = false;
 
     public void loadHandLists() {
-        loadHandRange();
-        loadMiddlePhaseScales();
-        loadFinalPhaseScales();
-        loadEarlyPhaseScales();
+        if (!loaded) {
+            loadHandRange();
+            loadMiddlePhaseScales();
+            loadFinalPhaseScales();
+            loadEarlyPhaseScales();
+            loaded = true;
+        }
     }
 
     private void loadHandRange() {

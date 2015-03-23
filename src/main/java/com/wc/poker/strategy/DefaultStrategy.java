@@ -18,7 +18,6 @@ public class DefaultStrategy {
 
     private GameState gameState;
     private OrbPhases orbPhase;
-    private RangeLoader rl;
 
     private int bet;
 

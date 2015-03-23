@@ -6,13 +6,7 @@
 package com.wc.gamestate;
 
 import com.wcs.poker.gamestate.Card;
-import com.wcs.poker.gamestate.GameState;
 import com.wcs.poker.gamestate.Hand;
-import com.wcs.poker.gamestate.Player;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 

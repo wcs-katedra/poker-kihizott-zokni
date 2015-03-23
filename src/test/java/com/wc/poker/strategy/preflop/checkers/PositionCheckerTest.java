@@ -10,7 +10,6 @@ import com.wc.poker.strategy.preflop.RangeLoader;
 import com.wc.poker.strategy.preflop.enums.Positions;
 import com.wc.poker.strategy.preflop.enums.Pot;
 import com.wcs.poker.gamestate.GameState;
-import com.wcs.poker.gamestate.Hand;
 import com.wcs.poker.gamestate.Player;
 import java.util.ArrayList;
 import java.util.List;

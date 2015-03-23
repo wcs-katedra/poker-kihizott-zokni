@@ -27,7 +27,7 @@ public final class PreFlopStrategy {
     public PreFlopStrategy(GameState gameState) {
         this.gameState = gameState;
         gamePhase = new GamePhase(gameState).evaluateGamePhase();
-        loadHand();
+        hand = gameState.getHand();
     }
 
     public int getBet() {
@@ -56,10 +56,6 @@ public final class PreFlopStrategy {
                 break;
             }
         }
-    }
-
-    private void loadHand() {
-        hand = gameState.getHand();
     }
 
     public static void setHandsToUse(List<Hand> handsToUse) {
