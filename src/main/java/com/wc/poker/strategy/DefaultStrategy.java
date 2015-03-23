@@ -24,6 +24,7 @@ public class DefaultStrategy {
     public DefaultStrategy(GameState gameState) {
         this.gameState = gameState;
         orbPhase = new OrbPhase(gameState).evaluateOrbPhase();
+        new RangeLoader().loadHandLists();
     }
 
     public int betRequest() {
@@ -57,7 +58,7 @@ public class DefaultStrategy {
     }
 
     public void flopStrategy() {
-        bet = gameState.raise(1);
+        bet = gameState.raise(2);
     }
 
     public void turnStrategy() {
