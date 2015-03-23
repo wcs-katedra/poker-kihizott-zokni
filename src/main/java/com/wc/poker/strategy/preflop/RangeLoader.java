@@ -1,5 +1,7 @@
 package com.wc.poker.strategy.preflop;
 
+import com.wc.poker.strategy.preflop.checkers.GamePhaseChecker;
+import com.wc.poker.strategy.preflop.checkers.PotStateChecker;
 import com.wcs.poker.gamestate.Card;
 import com.wcs.poker.gamestate.Hand;
 import java.util.ArrayList;

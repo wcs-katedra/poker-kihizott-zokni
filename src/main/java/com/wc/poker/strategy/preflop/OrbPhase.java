@@ -14,11 +14,9 @@ import com.wcs.poker.gamestate.GameState;
  */
 public class OrbPhase {
 
-	private GameState gameState;
 	private int communityCardsNumber;
 
 	public OrbPhase(GameState gameState) {
-		this.gameState = gameState;
 		communityCardsNumber = gameState.getCommunityCards().size();
 	}
 

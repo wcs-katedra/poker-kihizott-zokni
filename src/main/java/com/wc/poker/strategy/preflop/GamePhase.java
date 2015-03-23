@@ -14,12 +14,9 @@ import com.wcs.poker.gamestate.GameState;
  */
 public class GamePhase {
 
-	private GameState gameState;
-
 	private int stackInBBs;
 
 	public GamePhase(GameState gameState) {
-		this.gameState = gameState;
 		stackInBBs = gameState.getStackSizeInBBs();
 	}
 

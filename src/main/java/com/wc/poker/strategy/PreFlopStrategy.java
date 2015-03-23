@@ -1,6 +1,8 @@
+package com.wc.poker.strategy;
 
-package com.wc.poker.strategy.preflop;
-
+import com.wc.poker.strategy.preflop.Action;
+import com.wc.poker.strategy.preflop.GamePhase;
+import com.wc.poker.strategy.preflop.checkers.GamePhaseChecker;
 import com.wc.poker.strategy.preflop.enums.Actions;
 import com.wc.poker.strategy.preflop.enums.GamePhases;
 import com.wcs.poker.gamestate.GameState;
@@ -16,9 +18,9 @@ public final class PreFlopStrategy {
 
     private GameState gameState;
     private GamePhases gamePhase;
-    
+
     private Hand hand;
-    
+
     private static Actions action;
     private static List<Hand> handsToUse = new ArrayList<>();
 
@@ -57,9 +59,7 @@ public final class PreFlopStrategy {
     }
 
     private void loadHand() {
-        if (hand != null) {
-            hand = gameState.getHand();
-        }
+        hand = gameState.getHand();
     }
 
     public static void setHandsToUse(List<Hand> handsToUse) {
@@ -72,5 +72,9 @@ public final class PreFlopStrategy {
 
     public static void setAction(Actions action) {
         PreFlopStrategy.action = action;
+    }
+
+    public static Actions getAction() {
+        return action;
     }
 }

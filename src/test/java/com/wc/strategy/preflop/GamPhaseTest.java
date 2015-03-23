@@ -1,4 +1,4 @@
-package org.leanpoker.player;
+package com.wc.strategy.preflop;
 
 import com.wc.poker.strategy.preflop.GamePhase;
 import com.wc.poker.strategy.preflop.enums.GamePhases;

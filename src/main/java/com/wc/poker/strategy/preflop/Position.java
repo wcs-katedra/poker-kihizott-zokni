@@ -11,7 +11,6 @@ import java.util.List;
  */
 public class Position {
 
-    private GameState gameState;
     private int activePlayer;
     private int dealer;
     private List<Player> players;
@@ -20,7 +19,6 @@ public class Position {
     private int positionNumber;
 
     public Position(GameState gameState) {
-        this.gameState = gameState;
         players = gameState.getPlayers();
         numberOfPlayers = players.size();
         activePlayer = gameState.getInAction();

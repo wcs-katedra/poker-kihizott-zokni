@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.leanpoker.player;
+package com.wc.strategy.preflop;
 
 import com.wcs.poker.gamestate.GameState;
 import com.wc.poker.strategy.preflop.PotStatus;

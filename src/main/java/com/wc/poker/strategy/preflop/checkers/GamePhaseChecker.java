@@ -1,5 +1,7 @@
-package com.wc.poker.strategy.preflop;
+package com.wc.poker.strategy.preflop.checkers;
 
+import com.wc.poker.strategy.preflop.PotStatus;
+import com.wc.poker.strategy.PreFlopStrategy;
 import com.wc.poker.strategy.preflop.enums.Actions;
 import com.wc.poker.strategy.preflop.enums.Pot;
 import com.wcs.poker.gamestate.GameState;
@@ -93,4 +95,6 @@ public class GamePhaseChecker {
 	public static List<Hand> getPushAtFinalGamePhaseRaised() {
 		return pushAtFinalGamePhaseRaised;
 	}
+        
+        
 }

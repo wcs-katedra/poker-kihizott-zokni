@@ -1,6 +1,7 @@
 
-package com.wc.poker.strategy.preflop;
+package com.wc.poker.strategy.preflop.checkers;
 
+import com.wc.poker.strategy.preflop.Position;
 import com.wc.poker.strategy.preflop.enums.Positions;
 import com.wcs.poker.gamestate.GameState;
 
@@ -14,7 +15,7 @@ public class PositionChecker {
     private GameState gameState;
 
     public PositionChecker(GameState gameState) {
-        this.gameState = new GameState();
+        this.gameState = gameState;
         position = new Position(gameState).getPosition();
     }
 
@@ -36,4 +37,11 @@ public class PositionChecker {
         }
     }
 
+    public Positions getPosition() {
+        return position;
+    }
+
+    public void setPosition(Positions position) {
+        this.position = position;
+    }
 }

@@ -14,14 +14,12 @@ import com.wcs.poker.gamestate.GameState;
  */
 public class PotStatus {
 
-    private GameState gameState;
     private int buyIn;
     private int smallBlind;
     private int bigBlind;
     private int pot;
 
     public PotStatus(GameState gameState) {
-        this.gameState = gameState;
         smallBlind = gameState.getSmallBlind();
         bigBlind = gameState.getBigBlind();
         pot = gameState.getPot();
