@@ -22,9 +22,10 @@ public class RangeLoader {
     public void loadHandLists() {
         if (!loaded) {
             loadHandRange();
-            loadMiddlePhaseScales();
-            loadFinalPhaseScales();
-            loadEarlyPhaseScales();
+			loadMiddlePhaseScales();
+			loadFinalPhaseScales();
+			loadEarlyPhaseScales();
+//
             loaded = true;
         }
     }
@@ -156,10 +157,10 @@ public class RangeLoader {
     }
 
     private void loadEarlyPhaseScales() {
-        range = (int) (otherHandRange.size() * 0.1);
-        for (int i = 0; i < range; i++) {
-            PotStateChecker.getRaiseAtEarlyGamePhaseEarlyPositionLimped().add(otherHandRange.get(i));
-        }
+//        range = (int) (otherHandRange.size() * 0.1);
+//        for (int i = 0; i < range; i++) {
+//            PotStateChecker.getRaiseAtEarlyGamePhaseEarlyPositionLimped().add(otherHandRange.get(i));
+//        }
 
         range = (int) (pairHandRange.size());
         for (int i = 0; i < range; i++) {
@@ -216,4 +217,14 @@ public class RangeLoader {
             PotStateChecker.getCallAtEarlyGamePhaseBackPositionRaised().add(otherHandRange.get(i));
         }
     }
+
+	public static List<Hand> getOtherHandRange() {
+		return otherHandRange;
+	}
+
+	public static List<Hand> getPairHandRange() {
+		return pairHandRange;
+	}
+	
+	
 }

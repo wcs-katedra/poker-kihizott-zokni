@@ -7,12 +7,14 @@ package com.wc.poker.strategy.preflop.checkers;
 
 import com.wc.poker.strategy.PreFlopStrategy;
 import com.wc.poker.strategy.preflop.RangeLoader;
+import com.wc.poker.strategy.preflop.enums.Multiplier;
 import com.wc.poker.strategy.preflop.enums.Positions;
 import com.wc.poker.strategy.preflop.enums.Pot;
 import com.wcs.poker.gamestate.GameState;
 import com.wcs.poker.gamestate.Player;
 import java.util.ArrayList;
 import java.util.List;
+import static org.hamcrest.CoreMatchers.is;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.BeforeClass;
@@ -65,7 +67,8 @@ public class PositionCheckerTest {
         pc.setPosition(Positions.EARLY_POSITION);
         psc.setPotstatus(Pot.CLEAN);
         pc.checkPositionEGP();
-        assertEquals(PreFlopStrategy.getHandsToUse(), PotStateChecker.getRaiseAtEarlyGamePhaseEarlyPositionLimped());
+		int range = (int) (RangeLoader.getOtherHandRange().size() * Multiplier.TWENTY.getMultiplier());
+		assertThat(PreFlopStrategy.getHandsToUse(), is(RangeLoader.getOtherHandRange().subList(0, range)));
     }
 
 }
